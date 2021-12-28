@@ -56,8 +56,7 @@ app.set('view engine', 'ejs')
 // passport.use(new GoogleStrategy({
 //     clientID: process.env.CLIENT_ID,
 //     clientSecret: process.env.CLIENT_SECRET,
-//     // callbackURL: "https://iit-mandi-vaccination-database.herokuapp.com/auth/google/secrets",
-//     callbackURL: "http://localhost:3000/auth/google/markos",
+//     callbackURL: "http://localhost:3000/auth/google/ruvaan22",
 //     userProfileUrl : "https://www.googleapis.com.oauth2.v3.userinfo"
 //   },
 //   function(accessToken, refreshToken, profile, cb) {
