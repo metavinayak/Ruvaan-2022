@@ -1,6 +1,18 @@
+$(document).ready(function(){
+  $('.success-icon').slideUp();
+  $('.success-icon-subscription').slideUp();
+})
 
+function contactFormSubmit(){
+  $(".contact-form").slideUp(1000);
+  $(".success-icon").slideDown(1000);
+}
+function subscriptionFormSubmit(){
+  $(".subscription-form").toggle(1000);
+  $(".success-icon-subscription").slideDown(1000);
+}
 (function() {
-    "use strict";
+  "use strict";
   
     /**
      * Easy selector helper function
@@ -120,16 +132,16 @@
         }
       }
     });
-    /**
-     * Animation on scroll
-     */
-    window.addEventListener('load', () => {
-      AOS.init({
-        duration: 1000,
-        easing: 'ease-in-out',
-        once: true,
-        mirror: false
-      })
-    });
-  
-  })()
+  /**
+   * Animation on scroll
+   */
+  window.addEventListener('load', () => {
+    AOS.init({
+      duration: 1000,
+      easing: 'ease-in-out',
+      once: true,
+      mirror: false
+    })
+  });
+
+})()
