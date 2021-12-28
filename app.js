@@ -86,7 +86,48 @@ app.get("/events", function (req, res) {
   res.render("events", {});
 });
 
-// Subscription or Contact form submission
+// Subscription form submission
+app.post('/contact', function(req,res){
+  console.log(req.body);
+
+  const name = req.body.name;
+  const email = req.body.email;
+  const subject = req.body.subject;
+  const message = req.body.message;
+
+  // SMTP Server
+  async function main() {
+  
+    // create reusable transporter object using the default SMTP transport
+    let transporter = nodemailer.createTransport({
+    host: "smtp-mail.outlook.com",
+    port: 587,
+    secure: false, // true for 465, false for other ports
+    auth: {
+        user: "piyushverma0007@outlook.com", // generated ethereal user
+        pass: process.env.mailPASS, // generated ethereal password
+    },
+    tls:{
+        rejectUnauthorized:false
+    },
+    });
+
+    // send mail with defined transport object
+    let info = await transporter.sendMail({
+    from: name+" "+email+' <piyushverma0007@outlook.com>', // sender address
+    to: "piyushverma476@gmail.com", // list of receivers
+    subject: subject, // Subject line
+    html: message, // html body
+    });
+
+    console.log("Message sent: %s", info.messageId);
+    console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+  }
+  main().catch(console.error);
+})
+
+
+// Subscription form submission
 app.post("/subscribe", (req, res) => {
   console.log(req.body);
 
