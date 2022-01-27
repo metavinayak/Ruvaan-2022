@@ -465,3 +465,6 @@ border-radius: 20px;
 .subscribe-button{
 border-radius: 20px;
 }
+.custom-cur {
+    cursor: url('../media/pen.png') 20 70, auto;
+}

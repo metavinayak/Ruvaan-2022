@@ -15,6 +15,8 @@ require("https").globalAgent.options.rejectUnauthorized = false;
 
 const app = express();
 app.use(express.static("public"));
+// app.use(express.static(require('path').join(__dirname, 'public')));
+
 app.use(express.urlencoded({ extended: true }));
 app.engine('ejs', ejsMate)
 app.set("view engine", "ejs");
