@@ -512,6 +512,13 @@ h6 {
     cursor: url('../media/pen.png') 20 70, auto;
 }
 
+.spon-container 
+{
+  display:flex;
+  padding:5em;
+  position: relative;
+  flex-wrap: wrap; 
+}
 
 /* Firefox */
 
