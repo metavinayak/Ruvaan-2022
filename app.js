@@ -89,6 +89,9 @@ app.get("/contact", function(req, res) {
 app.get("/events", function(req, res) {
     res.render("events", {});
 });
+app.get("/sponsors", function(req, res) {
+    res.render("sponsors", {});
+});
 
 // Subscription or Contact form submission
 app.post("/subscribe", (req, res) => {
