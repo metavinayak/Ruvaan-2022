@@ -4,6 +4,7 @@ const passport = require("passport");
 const passportLocalMongoose = require("passport-local-mongoose");
 const express = require("express");
 const ejs = require("ejs");
+const ejsMate = require('ejs-mate');
 const mongoose = require("mongoose");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const findOrCreate = require("mongoose-findorcreate");
@@ -14,7 +15,10 @@ require("https").globalAgent.options.rejectUnauthorized = false;
 
 const app = express();
 app.use(express.static("public"));
+// app.use(express.static(require('path').join(__dirname, 'public')));
+
 app.use(express.urlencoded({ extended: true }));
+app.engine('ejs', ejsMate)
 app.set("view engine", "ejs");
 
 // app.use(session({
@@ -73,97 +77,59 @@ app.set("view engine", "ejs");
 // ));
 
 // ROUTES
-app.get("/", function (req, res) {
-  res.render("home", {});
+app.get("/", function(req, res) {
+    res.render("home", {});
 });
-app.get("/about", function (req, res) {
-  res.render("about", {});
+app.get("/about", function(req, res) {
+    res.render("about", {});
 });
-app.get("/contact", function (req, res) {
-  res.render("contact", {});
+app.get("/contact", function(req, res) {
+    res.render("contact", {});
 });
-app.get("/events", function (req, res) {
-  res.render("events", {});
+app.get("/events", function(req, res) {
+    res.render("events", {});
+});
+app.get("/sponsors", function(req, res) {
+    res.render("sponsors", {});
 });
 
-// Subscription form submission
-app.post('/contact', function(req,res){
-  console.log(req.body);
-
-  const name = req.body.name;
-  const email = req.body.email;
-  const subject = req.body.subject;
-  const message = req.body.message;
-
-  // SMTP Server
-  async function main() {
-  
-    // create reusable transporter object using the default SMTP transport
-    let transporter = nodemailer.createTransport({
-    host: "smtp-mail.outlook.com",
-    port: 587,
-    secure: false, // true for 465, false for other ports
-    auth: {
-        user: "piyushverma0007@outlook.com", // generated ethereal user
-        pass: process.env.mailPASS, // generated ethereal password
-    },
-    tls:{
-        rejectUnauthorized:false
-    },
-    });
-
-    // send mail with defined transport object
-    let info = await transporter.sendMail({
-    from: name+" "+email+' <piyushverma0007@outlook.com>', // sender address
-    to: "piyushverma476@gmail.com", // list of receivers
-    subject: subject, // Subject line
-    html: message, // html body
-    });
-
-    console.log("Message sent: %s", info.messageId);
-    console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
-  }
-  main().catch(console.error);
-})
-
-
-// Subscription form submission
+// Subscription or Contact form submission
 app.post("/subscribe", (req, res) => {
-  console.log(req.body);
+    console.log(req.body);
 
-  // SMTP Server
-  async function main() {
-    const subscriber = req.body.email;
+    // SMTP Server
+    async function main() {
+        const subscriber = req.body.email;
 
-    // create reusable transporter object using the default SMTP transport
-    let transporter = nodemailer.createTransport({
-      host: "smtp-mail.outlook.com",
-      port: 587,
-      secure: false, // true for 465, false for other ports
-      auth: {
-        user: "piyushverma0007@outlook.com", // generated ethereal user
-        pass: process.env.mailPASS, // generated ethereal password
-      },
-      tls: {
-        rejectUnauthorized: false,
-      },
-    });
+        // create reusable transporter object using the default SMTP transport
+        let transporter = nodemailer.createTransport({
+            host: "smtp-mail.outlook.com",
+            port: 587,
+            secure: false, // true for 465, false for other ports
+            auth: {
+                user: "piyushverma0007@outlook.com", // generated ethereal user
+                pass: process.env.mailPASS, // generated ethereal password
+            },
+            tls: {
+                rejectUnauthorized: false,
+            },
+        });
 
-    // send mail with defined transport object
-    let info = await transporter.sendMail({
-      from: '"Kongthong" <piyushverma0007@outlook.com>', // sender address
-      to: subscriber, // list of receivers
-      subject: "Subscription", // Subject line
-      text: "Hello world", // plain text body
-      html: "You are subscribed", // html body
-    });
+        // send mail with defined transport object
+        let info = await transporter.sendMail({
+            from: '"Kongthong" <piyushverma0007@outlook.com>', // sender address
+            to: subscriber, // list of receivers
+            subject: "Subscription", // Subject line
+            text: "Hello world", // plain text body
+            html: "You are subscribed", // html body
+        });
 
-    console.log("Message sent: %s", info.messageId);
-    console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
-  }
-  main().catch(console.error);
+        console.log("Message sent: %s", info.messageId);
+        console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+    }
+    main().catch(console.error);
 });
 
-app.listen(3000 || process.env.PORT, function () {
-  console.log("Server running on port 3000");
+app.listen(3000 || process.env.PORT, function() {
+    console.log("Server running on port 3000");
 });
