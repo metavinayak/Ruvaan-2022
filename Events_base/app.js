@@ -56,7 +56,9 @@ myFig1.addEventListener('mouseleave', e => {
     myFig1.classList.remove('hovered')
     if(clickOne === 0){
         for(let i = 0 ; i < 3 ; i++){
-            cards[i].removeChild(expandBtns[i]);
+            if(cards[i].children.length){
+                cards[i].removeChild(expandBtns[i]);
+            }
         }
     }
 })
@@ -137,7 +139,9 @@ myFig2.addEventListener('mouseenter', e => {
 myFig2.addEventListener('mouseleave', e => {
     myFig2.classList.remove('hovered')
     for(let i = 3 ; i < 6 ; i++){
-        cards[i].removeChild(expandBtns[i]);
+        if(cards[i].children.length){
+            cards[i].removeChild(expandBtns[i]);
+        }
     }
 })
 for(let j = 3 ; j < 6 ; j++){
@@ -216,7 +220,9 @@ myFig3.addEventListener('mouseenter', e => {
 myFig3.addEventListener('mouseleave', e => {
     myFig3.classList.remove('hovered')
     for(let i = 6 ; i < 9 ; i++){
-        cards[i].removeChild(expandBtns[i]);
+        if(cards[i].children.length){
+            cards[i].removeChild(expandBtns[i]);
+        }
     }
 })
 for(let j = 6 ; j < 9 ; j++){
