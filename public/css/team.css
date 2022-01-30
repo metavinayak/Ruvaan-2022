@@ -110,10 +110,9 @@ ul li {
     font-weight: normal;
 }
 
-
 .social-media {
     display: inline-block;
-	font-size: 1.4em;
+	/* font-size: 1.4em; */
     margin: auto;
     display: flex;
     justify-content: center;
