@@ -119,7 +119,7 @@ for(let j = 0 ; j < 3 ; j++){
                 }
                 setTimeout(() => {
                     foot.classList.remove('mobFoot')                    
-                }, 1600);
+                }, 1500);
                 divTwo.style.animation = 'up 1.5s forwards'
                 divThree.style.animation = 'up 1.5s forwards'
                 clickOne = 0;
@@ -145,7 +145,7 @@ for(let j = 0 ; j < 3 ; j++){
                 }
                 setTimeout(() => {
                     foot.classList.remove('mobFoot')                    
-                }, 1600);
+                }, 1500);
                 divTwo.style.animation = 'up 1.5s forwards'
                 divThree.style.animation = 'up 1.5s forwards'
                 clickOne = 0;
@@ -233,7 +233,7 @@ for(let j = 3 ; j < 6 ; j++){
                 }
                 setTimeout(() => {
                     foot.classList.remove('mobFoot')                    
-                }, 1600);
+                }, 1500);
                 divThree.style.animation = 'up 1.5s forwards'
                 clickTwo = 0;
             })
@@ -258,7 +258,7 @@ for(let j = 3 ; j < 6 ; j++){
                 }
                 setTimeout(() => {
                     foot.classList.remove('mobFoot')                    
-                }, 1600);
+                }, 1500);
                 divThree.style.animation = 'up 1.5s forwards'
                 clickTwo = 0;
             }
@@ -346,7 +346,7 @@ for(let j = 6 ; j < 9 ; j++){
                 }
                 setTimeout(() => {
                     foot.classList.remove('mobFoot')                    
-                }, 1600);
+                }, 1500);
                 
                 clickThree = 0;
             })
@@ -373,7 +373,7 @@ for(let j = 6 ; j < 9 ; j++){
                 }
                 setTimeout(() => {
                     foot.classList.remove('mobFoot')                    
-                }, 1600);
+                }, 1500);
                 clickThree = 0;
             }
         }, 15000);
