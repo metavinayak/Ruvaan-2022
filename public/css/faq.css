@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&display=swap');
+.faq-title{
+    text-align: left;
+    color: black;
+    font-family: 'Mochiy Pop P One', sans-serif;
+    font-size: 2rem;
+    padding : 30px;
+}
+
+.faq-search-box-div{
+    text-align: left;
+}
+
+.search-box{
+    border-radius: 5px;
+    width:80%;
+    height:40px;
+}
+
+.accordion{
+    margin-bottom: 100px;
+}
+.accordion-item{
+    margin: 20px 0;
+}
+
+.faq-svg-div{
+    text-align: center;
+}
+
+.faq-svg{
+    width:200px;
+}

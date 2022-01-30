@@ -92,6 +92,9 @@ app.get("/events", function(req, res) {
 app.get("/sponsors", function(req, res) {
     res.render("sponsors", {});
 });
+app.get("/faq", function(req,res){
+    res.render("faq", {});
+})
 
 // Subscription or Contact form submission
 app.post("/subscribe", (req, res) => {
