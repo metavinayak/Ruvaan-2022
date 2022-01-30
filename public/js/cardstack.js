@@ -78,8 +78,8 @@ myFig1.addEventListener('mouseleave', e => {
 for(let j = 0 ; j < 3 ; j++){
     expandBtns[j].addEventListener('click', e => {
         timedOne = 0;
-        if(getWidth() < 992){
-            foot.classList.add('mobFoot')
+        foot.classList.add('mobFoot')
+        if(getWidth() < 992){            
             one[0].style.animation = 'mobileTopSlide 1.5s forwards'
             two[0].style.animation = 'mobileMiddleSlide 1.5s forwards'
             three[0].style.animation = 'mobileBottomSlide 1.5s forwards' 
@@ -110,15 +110,16 @@ for(let j = 0 ; j < 3 ; j++){
                 if(getWidth() < 992){
                     one[0].style.animation = 'mobileTopSlideBack 1.5s forwards'
                     two[0].style.animation = 'mobileMiddleSlideBack 1.5s forwards'
-                    three[0].style.animation = 'mobileBottomSlideBack 1.5s forwards'
-                    foot.classList.remove('mobFoot')
+                    three[0].style.animation = 'mobileBottomSlideBack 1.5s forwards'                    
                 }
                 else {
                     one[0].style.animation = 'onTopOneSlideBack 1.5s forwards'
                     two[0].style.animation = 'onMiddleOneSlideBack 1.5s forwards'
                     three[0].style.animation = 'onBottomOneSlideBack 1.5s forwards'
                 }
-                
+                setTimeout(() => {
+                    foot.classList.remove('mobFoot')                    
+                }, 1600);
                 divTwo.style.animation = 'up 1.5s forwards'
                 divThree.style.animation = 'up 1.5s forwards'
                 clickOne = 0;
@@ -135,15 +136,16 @@ for(let j = 0 ; j < 3 ; j++){
                 if(getWidth() < 992){
                     one[0].style.animation = 'mobileTopSlideBack 1.5s forwards'
                     two[0].style.animation = 'mobileMiddleSlideBack 1.5s forwards'
-                    three[0].style.animation = 'mobileBottomSlideBack 1.5s forwards'
-                    foot.classList.remove('mobFoot')
+                    three[0].style.animation = 'mobileBottomSlideBack 1.5s forwards'                    
                 }
                 else {
                     one[0].style.animation = 'onTopOneSlideBack 1.5s forwards'
                     two[0].style.animation = 'onMiddleOneSlideBack 1.5s forwards'
                     three[0].style.animation = 'onBottomOneSlideBack 1.5s forwards'
                 }
-
+                setTimeout(() => {
+                    foot.classList.remove('mobFoot')                    
+                }, 1600);
                 divTwo.style.animation = 'up 1.5s forwards'
                 divThree.style.animation = 'up 1.5s forwards'
                 clickOne = 0;
@@ -191,7 +193,6 @@ for(let j = 3 ; j < 6 ; j++){
     expandBtns[j].addEventListener('click', e => {
         timedTwo = 0;
         if(getWidth() < 992){
-            foot.classList.add('mobFoot')
             one[1].style.animation = 'mobileTopSlide 1.5s forwards'
             two[1].style.animation = 'mobileMiddleSlide 1.5s forwards'
             three[1].style.animation = 'mobileBottomSlide 1.5s forwards' 
@@ -202,6 +203,7 @@ for(let j = 3 ; j < 6 ; j++){
             three[1].style.animation = 'onBottomTwoSlide 1.5s forwards'
             divOne.style.animation = 'down 1.5s forwards'
         }
+        foot.classList.add('mobFoot')
         divThree.style.animation = 'down 1.5s forwards'
 
         for(let i = 3 ; i < 6 ; i++){
@@ -222,7 +224,6 @@ for(let j = 3 ; j < 6 ; j++){
                     one[1].style.animation = 'mobileTopSlideBack 1.5s forwards'
                     two[1].style.animation = 'mobileMiddleSlideBack 1.5s forwards'
                     three[1].style.animation = 'mobileBottomSlideBack 1.5s forwards' 
-                    foot.classList.remove('mobFoot')
                 }
                 else{
                     one[1].style.animation = 'onTopTwoSlideBack 1.5s forwards'
@@ -230,6 +231,9 @@ for(let j = 3 ; j < 6 ; j++){
                     three[1].style.animation = 'onBottomTwoSlideBack 1.5s forwards'
                     divOne.style.animation = 'up 1.5s forwards'
                 }
+                setTimeout(() => {
+                    foot.classList.remove('mobFoot')                    
+                }, 1600);
                 divThree.style.animation = 'up 1.5s forwards'
                 clickTwo = 0;
             })
@@ -245,7 +249,6 @@ for(let j = 3 ; j < 6 ; j++){
                     one[1].style.animation = 'mobileTopSlideBack 1.5s forwards'
                     two[1].style.animation = 'mobileMiddleSlideBack 1.5s forwards'
                     three[1].style.animation = 'mobileBottomSlideBack 1.5s forwards'
-                    foot.classList.remove('mobFoot') 
                 }
                 else{
                     one[1].style.animation = 'onTopTwoSlideBack 1.5s forwards'
@@ -253,6 +256,9 @@ for(let j = 3 ; j < 6 ; j++){
                     three[1].style.animation = 'onBottomTwoSlideBack 1.5s forwards'
                     divOne.style.animation = 'up 1.5s forwards'
                 }
+                setTimeout(() => {
+                    foot.classList.remove('mobFoot')                    
+                }, 1600);
                 divThree.style.animation = 'up 1.5s forwards'
                 clickTwo = 0;
             }
@@ -298,7 +304,6 @@ for(let j = 6 ; j < 9 ; j++){
     expandBtns[j].addEventListener('click', e => {
         timedThree = 0;
         if(getWidth() < 992){
-            foot.classList.add('mobFoot')
             body.classList.add('heightMob')
             one[2].style.animation = 'mobileTopSlide 1.5s forwards'
             two[2].style.animation = 'mobileMiddleSlide 1.5s forwards'
@@ -311,6 +316,7 @@ for(let j = 6 ; j < 9 ; j++){
             divOne.style.animation = 'down 1.5s forwards'
             divTwo.style.animation = 'down 1.5s forwards'
         }
+        foot.classList.add('mobFoot')
            
         for(let i = 6 ; i < 9 ; i++){
             cards[i].removeChild(expandBtns[i]);
@@ -329,7 +335,6 @@ for(let j = 6 ; j < 9 ; j++){
                     one[2].style.animation = 'mobileTopSlideBack 1.5s forwards'
                     two[2].style.animation = 'mobileMiddleSlideBack 1.5s forwards'
                     three[2].style.animation = 'mobileBottomSlideBack 1.5s forwards'
-                    foot.classList.remove('mobFoot')
                     body.classList.remove('heightMob') 
                 }
                 else{
@@ -339,6 +344,9 @@ for(let j = 6 ; j < 9 ; j++){
                     divTwo.style.animation = 'up 1.5s forwards'
                     divOne.style.animation = 'up 1.5s forwards'
                 }
+                setTimeout(() => {
+                    foot.classList.remove('mobFoot')                    
+                }, 1600);
                 
                 clickThree = 0;
             })
@@ -354,7 +362,6 @@ for(let j = 6 ; j < 9 ; j++){
                     one[2].style.animation = 'mobileTopSlideBack 1.5s forwards'
                     two[2].style.animation = 'mobileMiddleSlideBack 1.5s forwards'
                     three[2].style.animation = 'mobileBottomSlideBack 1.5s forwards'
-                    foot.classList.remove('mobFoot')
                     body.classList.remove('heightMob') 
                 }
                 else{
@@ -364,6 +371,9 @@ for(let j = 6 ; j < 9 ; j++){
                     divTwo.style.animation = 'up 1.5s forwards'
                     divOne.style.animation = 'up 1.5s forwards'
                 }
+                setTimeout(() => {
+                    foot.classList.remove('mobFoot')                    
+                }, 1600);
                 clickThree = 0;
             }
         }, 15000);
