@@ -352,7 +352,8 @@ h6 {
   background: url("../img/footer-bg.jpg") center center no-repeat;
   color: var(--plain-bg);
   font-size: 14px;
-  position: relative;
+  position: relative;  
+  transition: 1s ease-in;
 }
 
 #footer::before {
