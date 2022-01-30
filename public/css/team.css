@@ -1,0 +1,128 @@
+/* 
+* 1. Google Font
+*/
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,400,700);
+@import url(https://fonts.googleapis.com/css2?family=Laila:wght@700&display=swap);
+@import url('https://fonts.googleapis.com/css2?family=Allura&display=swap');
+
+/* 
+* 2.0 Global Style
+*/
+
+html {
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+    scroll-behavior: smooth;
+}
+
+body {
+    color: #4e4e4e;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+}
+
+.wrapper h1{
+    font-family: 'Allura', cursive;
+    font-size: 100px;
+    margin-top: 60px;
+    text-align: center;
+  }
+
+a {
+    color: #000;
+}
+
+a:focus {
+    outline: none;
+}
+
+p {
+    margin: 0 0 30px;
+}
+
+ul li {
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.fa {
+    color: white;
+    font-size: 1.25em;
+}
+
+.valign-center {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.section {
+    padding: 70px 0;
+}
+
+.section-title {
+    color: #000000;
+    font-family: 'Laila', sans-serif;
+    letter-spacing: 1px;
+    margin: 0 0 20px;
+    text-align: center;
+    font-size: 42px;
+}
+
+.person span {
+    margin: auto;
+}
+
+.person-img {
+    margin: auto;
+}
+
+.person-img img {
+    width: 100%;
+    max-width: 200px;
+}
+
+.person-img > img {
+    cursor: pointer;
+    transition: transform 200ms;
+}
+
+@media (min-width: 770px) {
+    .person-img > img:hover {
+        transform: scale(1.1);
+    }
+}
+
+.team-head {
+    color: #232248;
+}
+
+.person-name {
+    font-weight: normal;
+}
+
+.social-media {
+    display: inline-block;
+	font-size: 1.4em;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.social-media a {
+    padding: 0px 10px;
+}
+
+.social-media .fa {
+    color: #232248;
+    width: 100%;
+}
