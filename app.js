@@ -110,7 +110,7 @@ app.post("/subscribe", (req, res) => {
             port: 587,
             secure: false, // true for 465, false for other ports
             auth: {
-                user: "piyushverma0007@outlook.com", // generated ethereal user
+                user: "", // generated ethereal user
                 pass: process.env.mailPASS, // generated ethereal password
             },
             tls: {
@@ -120,7 +120,7 @@ app.post("/subscribe", (req, res) => {
 
         // send mail with defined transport object
         let info = await transporter.sendMail({
-            from: '"Kongthong" <piyushverma0007@outlook.com>', // sender address
+            from: '', // sender address
             to: subscriber, // list of receivers
             subject: "Subscription", // Subject line
             text: "Hello world", // plain text body
