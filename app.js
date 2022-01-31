@@ -92,7 +92,7 @@ app.get("/events", function(req, res) {
 app.get("/sponsors", function(req, res) {
     res.render("sponsors", {});
 });
-app.get("/faq", function(req,res){
+app.get("/faq", function(req, res) {
     res.render("faq", {});
 })
 app.get("/team", function(req, res) {
@@ -136,6 +136,6 @@ app.post("/subscribe", (req, res) => {
     main().catch(console.error);
 });
 
-app.listen(3000 || process.env.PORT, function() {
+app.listen(process.env.PORT || 3000, function() {
     console.log("Server running on port 3000");
 });
