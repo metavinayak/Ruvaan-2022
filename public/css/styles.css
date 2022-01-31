@@ -77,6 +77,12 @@ h6 {
   box-shadow: 0 4px 10px -3px rgba(191, 191, 191, 0.5);
 }
 
+.social-icons{
+  color:black;
+}
+.social-icons :hover{
+  color:gray;
+}
 #header .logo h1 {
   font-size: 28px;
   margin: 0;
@@ -506,7 +512,7 @@ h6 {
   cursor: url("../media/pen.png") 20 70, auto;
 }
 
-.spon-container {
+.card-container {
   display: flex;
   padding: 2em;
   position: relative;
