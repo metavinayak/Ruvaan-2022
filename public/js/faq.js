@@ -34,14 +34,7 @@ let pastState = "";
 
 function faqValue() {
     let faqSearch = $(".search-box").val();
-
-    if (faqSearch === "") {
-        $(".accordion-item").remove();
-        $(".collapse").remove();
-        Ques.forEach(function(Q, index) {
-            addtoAccordion(Ques[index], Ans[index], index);
-        });
-    } else if (pastState !== faqSearch) {
+    if (pastState !== faqSearch) {
         pastState = faqSearch;
         $(".accordion-item").remove();
         $(".collapse").remove();
@@ -54,6 +47,10 @@ function faqValue() {
                 if (result !== null) {
                     addtoAccordion(Ques[index], Ans[index], index);
                 }
+            });
+        } else {
+            Ques.forEach(function(Q, index) {
+                addtoAccordion(Ques[index], Ans[index], index);
             });
         }
     }
