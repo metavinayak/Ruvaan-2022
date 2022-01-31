@@ -15,8 +15,8 @@ const Ans = [
 
 function addtoAccordion(que, ans, i) {
     let faqAccordian = `<div class="accordion-item">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse${i}" aria-expanded="false" aria-controls="flush-collapse${i}">
     <h2 class="accordion-header" id="flush-heading${i}">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse${i}" aria-expanded="false" aria-controls="flush-collapse${i}">
         ${que}
         </button>
     </h2>
@@ -32,7 +32,13 @@ let pastState = "";
 
 function faqValue() {
     let faqSearch = $(".search-box").val();
-    if (pastState !== faqSearch) {
+    if (faqSearch === "") {
+        $(".accordion-item").remove();
+        $(".collapse").remove();
+        Ques.forEach(function(Q, index) {
+            addtoAccordion(Ques[index], Ans[index], index);
+        });
+    } else if (pastState !== faqSearch) {
         pastState = faqSearch;
         $(".accordion-item").remove();
         $(".collapse").remove();
