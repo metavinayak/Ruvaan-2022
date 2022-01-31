@@ -15,7 +15,9 @@ const Ans = [
 
 function addtoAccordion(que, ans, i) {
     let faqAccordian = `<div class="accordion-item">
+
     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse${i}" aria-expanded="false" aria-controls="flush-collapse${i}">
+
     <h2 class="accordion-header" id="flush-heading${i}">
         ${que}
         </button>
@@ -32,6 +34,7 @@ let pastState = "";
 
 function faqValue() {
     let faqSearch = $(".search-box").val();
+
     if (faqSearch === "") {
         $(".accordion-item").remove();
         $(".collapse").remove();
