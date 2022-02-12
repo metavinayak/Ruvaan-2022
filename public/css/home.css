@@ -1,77 +1,65 @@
-body {
+/* Style the video: 100% width and height to cover the entire window */
+#myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+  }
+  
+  /* Add some content at the bottom of the video/page */
+  .content {
+    position: fixed;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: #f1f1f1;
     width: 100%;
-    height: auto;
-    /* background-image: url('/media/home2.png');
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    background-color: #464646; */
-    background: url('/media/home2.png') center center cover no-repeat fixed;
-}
+    padding: 20px;
+  }
+  
+  /* Style the button used to pause/play the video */
+  #myBtn {
+    width: 200px;
+    font-size: 18px;
+    padding: 10px;
+    border: none;
+    background: #000;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  #myBtn:hover {
+    background: #ddd;
+    color: black;
+  }
 
-img {
-    width: 100%;
-    height: auto;
-    -webkit-animation: zoom 5s;
-    /* Chrome, Safari, Opera */
-    animation: zoom 5s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
-}
 
-@-webkit-keyframes zoom {
-    from {
-        -webkit-transform: scale(1, 1);
-    }
-    to {
-        -webkit-transform: scale(1.25, 1.25);
-    }
-}
 
-@keyframes zoom {
-    from {
-        transform: scale(1, 1);
-    }
-    to {
-        transform: scale(1.25, 1.25);
-    }
+ /* On rotation in mobile browser
+---------------------------------------------
+ /////CAUTION : DO NOT ADD MEDIA QUERIES/////
+--------------------------------------------- 
+*/
+.landscape{
+  color : #fff;
+  background-color: #000;
+  position:fixed;
+  z-index: 2000;
+  right: 0;
+  bottom: 0;
+  min-height : 100%;
+  min-width : 100%;
+  visibility: visible;
+  text-align: center;
+  font-size: 30px;
 }
-
-@media only screen and (max-width: 767px) {
-    @-webkit-keyframes zoom {
-        from {
-            -webkit-transform: scale(1, 1);
-        }
-        to {
-            -webkit-transform: scale(1.75, 1.75);
-        }
-    }
-    @keyframes zoom {
-        from {
-            transform: scale(1, 1);
-        }
-        to {
-            transform: scale(1.75, 1.75);
-        }
-    }
+.rotate-svg{
+  position:inline-block;
+  /* margin-left:43%; */
+  margin-top:8%;
+  font-size: 100px;
 }
-
-@media only screen and (max-width: 481px) {
-    @-webkit-keyframes zoom {
-        from {
-            -webkit-transform: scale(1, 1);
-        }
-        to {
-            -webkit-transform: scale(2, 2);
-        }
-    }
-    @keyframes zoom {
-        from {
-            transform: scale(1, 1);
-        }
-        to {
-            transform: scale(2, 2);
-        }
-    }
+.rotate{
+  display:inline-block;
+  /* transform: rotate(180deg); */
 }
