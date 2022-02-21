@@ -9,7 +9,6 @@ const divTwo = document.querySelector(".divTwo");
 const divThree = document.querySelector(".divThree");
 const row = document.querySelector(".row");
 const body = document.querySelector("body");
-const foot = document.querySelector("#footer");
 
 let myFig1 = myFig[0];
 let myFig2 = myFig[1];
@@ -78,7 +77,6 @@ myFig1.addEventListener('mouseleave', e => {
 for(let j = 0 ; j < 3 ; j++){
     expandBtns[j].addEventListener('click', e => {
         timedOne = 0;
-        foot.classList.add('mobFoot')
         if(getWidth() < 992){            
             one[0].style.animation = 'mobileTopSlide 1.5s forwards'
             two[0].style.animation = 'mobileMiddleSlide 1.5s forwards'
@@ -117,8 +115,7 @@ for(let j = 0 ; j < 3 ; j++){
                     two[0].style.animation = 'onMiddleOneSlideBack 1.5s forwards'
                     three[0].style.animation = 'onBottomOneSlideBack 1.5s forwards'
                 }
-                setTimeout(() => {
-                    foot.classList.remove('mobFoot')                    
+                setTimeout(() => {                 
                 }, 1500);
                 divTwo.style.animation = 'up 1.5s forwards'
                 divThree.style.animation = 'up 1.5s forwards'
@@ -143,8 +140,7 @@ for(let j = 0 ; j < 3 ; j++){
                     two[0].style.animation = 'onMiddleOneSlideBack 1.5s forwards'
                     three[0].style.animation = 'onBottomOneSlideBack 1.5s forwards'
                 }
-                setTimeout(() => {
-                    foot.classList.remove('mobFoot')                    
+                setTimeout(() => {            
                 }, 1500);
                 divTwo.style.animation = 'up 1.5s forwards'
                 divThree.style.animation = 'up 1.5s forwards'
@@ -203,7 +199,6 @@ for(let j = 3 ; j < 6 ; j++){
             three[1].style.animation = 'onBottomTwoSlide 1.5s forwards'
             divOne.style.animation = 'down 1.5s forwards'
         }
-        foot.classList.add('mobFoot')
         divThree.style.animation = 'down 1.5s forwards'
 
         for(let i = 3 ; i < 6 ; i++){
@@ -231,8 +226,7 @@ for(let j = 3 ; j < 6 ; j++){
                     three[1].style.animation = 'onBottomTwoSlideBack 1.5s forwards'
                     divOne.style.animation = 'up 1.5s forwards'
                 }
-                setTimeout(() => {
-                    foot.classList.remove('mobFoot')                    
+                setTimeout(() => {                    
                 }, 1500);
                 divThree.style.animation = 'up 1.5s forwards'
                 clickTwo = 0;
@@ -256,8 +250,7 @@ for(let j = 3 ; j < 6 ; j++){
                     three[1].style.animation = 'onBottomTwoSlideBack 1.5s forwards'
                     divOne.style.animation = 'up 1.5s forwards'
                 }
-                setTimeout(() => {
-                    foot.classList.remove('mobFoot')                    
+                setTimeout(() => {                   
                 }, 1500);
                 divThree.style.animation = 'up 1.5s forwards'
                 clickTwo = 0;
@@ -316,7 +309,6 @@ for(let j = 6 ; j < 9 ; j++){
             divOne.style.animation = 'down 1.5s forwards'
             divTwo.style.animation = 'down 1.5s forwards'
         }
-        foot.classList.add('mobFoot')
            
         for(let i = 6 ; i < 9 ; i++){
             cards[i].removeChild(expandBtns[i]);
@@ -344,8 +336,7 @@ for(let j = 6 ; j < 9 ; j++){
                     divTwo.style.animation = 'up 1.5s forwards'
                     divOne.style.animation = 'up 1.5s forwards'
                 }
-                setTimeout(() => {
-                    foot.classList.remove('mobFoot')                    
+                setTimeout(() => {                
                 }, 1500);
                 
                 clickThree = 0;
@@ -371,8 +362,7 @@ for(let j = 6 ; j < 9 ; j++){
                     divTwo.style.animation = 'up 1.5s forwards'
                     divOne.style.animation = 'up 1.5s forwards'
                 }
-                setTimeout(() => {
-                    foot.classList.remove('mobFoot')                    
+                setTimeout(() => {                   
                 }, 1500);
                 clickThree = 0;
             }
