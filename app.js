@@ -4,7 +4,7 @@ const passport = require("passport");
 const passportLocalMongoose = require("passport-local-mongoose");
 const express = require("express");
 const ejs = require("ejs");
-const ejsMate = require('ejs-mate');
+const ejsMate = require("ejs-mate");
 const mongoose = require("mongoose");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const findOrCreate = require("mongoose-findorcreate");
@@ -18,7 +18,7 @@ app.use(express.static("public"));
 // app.use(express.static(require('path').join(__dirname, 'public')));
 
 app.use(express.urlencoded({ extended: true }));
-app.engine('ejs', ejsMate)
+app.engine("ejs", ejsMate);
 app.set("view engine", "ejs");
 
 // app.use(session({
@@ -77,65 +77,71 @@ app.set("view engine", "ejs");
 // ));
 
 // ROUTES
-app.get("/", function(req, res) {
-    res.render("home", {});
+app.get("/", function (req, res) {
+  res.render("home", {});
 });
-app.get("/about", function(req, res) {
-    res.render("about", {});
+app.get("/about", function (req, res) {
+  res.render("about", {});
 });
-app.get("/contact", function(req, res) {
-    res.render("contact", {});
+app.get("/contact", function (req, res) {
+  res.render("contact", {});
 });
-app.get("/events", function(req, res) {
-    res.render("events", {});
+app.get("/events", function (req, res) {
+  res.render("events", {});
 });
-app.get("/sponsors", function(req, res) {
-    res.render("sponsors", {});
+app.get("/sponsors", function (req, res) {
+  res.render("sponsors", {});
 });
-app.get("/faq", function(req, res) {
-    res.render("faq", {});
-})
-app.get("/team", function(req, res) {
-    res.render("team", {});
+app.get("/faq", function (req, res) {
+  res.render("faq", {});
+});
+app.get("/team", function (req, res) {
+  res.render("team", {});
+});
+app.get("/workshop", function (req, res) {
+  res.render("Workshop", {});
+});
+app.get("/merchandise", function (req, res) {
+  res.render("Merchandise", {});
 });
 
 // Subscription or Contact form submission
 app.post("/subscribe", (req, res) => {
-    console.log(req.body);
+  console.log(req.body);
 
-    // SMTP Server
-    async function main() {
-        const subscriber = req.body.email;
+  // SMTP Server
+  async function main() {
+    const subscriber = req.body.email;
 
-        // create reusable transporter object using the default SMTP transport
-        let transporter = nodemailer.createTransport({
-            host: "smtp-mail.outlook.com",
-            port: 587,
-            secure: false, // true for 465, false for other ports
-            auth: {
-                user: "", // generated ethereal user
-                pass: process.env.mailPASS, // generated ethereal password
-            },
-            tls: {
-                rejectUnauthorized: false,
-            },
-        });
+    // create reusable transporter object using the default SMTP transport
+    let transporter = nodemailer.createTransport({
+      host: "smtp-mail.outlook.com",
+      port: 587,
+      secure: false, // true for 465, false for other ports
+      auth: {
+        user: "", // generated ethereal user
+        pass: process.env.mailPASS, // generated ethereal password
+      },
+      tls: {
+        rejectUnauthorized: false,
+      },
+    });
 
-        // send mail with defined transport object
-        let info = await transporter.sendMail({
-            from: '', // sender address
-            to: subscriber, // list of receivers
-            subject: "Subscription", // Subject line
-            text: "Hello world", // plain text body
-            html: "You are subscribed", // html body
-        });
+    // send mail with defined transport object
+    let info = await transporter.sendMail({
+      from: "", // sender address
+      to: subscriber, // list of receivers
+      subject: "Subscription", // Subject line
+      text: "Hello world", // plain text body
+      html: "You are subscribed", // html body
+    });
 
-        console.log("Message sent: %s", info.messageId);
-        console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
-    }
-    main().catch(console.error);
+    console.log("Message sent: %s", info.messageId);
+    console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+  }
+  main().catch(console.error);
 });
 
-app.listen(process.env.PORT || 3000, function() {
-    console.log("Server running on port 3000");
+app.listen(process.env.PORT || 3000, function () {
+  console.log("Server running on port 3000");
 });
