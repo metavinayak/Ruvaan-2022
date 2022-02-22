@@ -42,8 +42,6 @@ x-sign:nth-of-type(1) {
   height: 550px;
 }
 #page-title {
-  /* background: url(../../images/background/workshop.jpg); */
-  /* padding-top: 150px; */
   position: relative;
   background-repeat: no-repeat;
   background-position: center center;
