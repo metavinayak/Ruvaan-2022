@@ -78,7 +78,8 @@ app.set("view engine", "ejs");
 
 // ROUTES
 app.get("/", function(req, res) {
-    res.render("home", {});
+    // res.render("home", {});
+    res.redirect('/events');
 });
 app.get("/about", function(req, res) {
     res.render("about", {});
