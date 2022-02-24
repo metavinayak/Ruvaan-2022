@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Allura&family=Josefin+Sans:wght@100&display=swap');
+/*@import url('https://fonts.googleapis.com/css2?family=Allura&family=Josefin+Sans:wght@100&display=swap');*/
 
 * {
     margin: 0;
@@ -6,15 +6,6 @@
     box-sizing: border-box;
   }
   
-  body {
-    font-family: 'Times New Roman', Times, serif;
-    /* display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh; */
-    /* background: linear-gradient(#03a9f4, #03a9f4 45%, #fff 45%, #fff 100%); */
-  }
-
   .wrapper h1{
     font-family: 'Allura', cursive;
     text-align:center;
