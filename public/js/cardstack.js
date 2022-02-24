@@ -128,6 +128,10 @@ function getWidth() {
 //     b.addEventListener('click',resume);
 // }
 
+let openOne = false;
+let openTwo = false;
+let openThree = false;
+
 let clickOne = 0;
 let timedOne = 0;
 
@@ -140,7 +144,7 @@ for (let i = 0; i < expandBtns.length; i++) {
 }
 
 myFig1.addEventListener("mouseenter", (e) => {
-    if (clickOne === 0) {
+    if (clickOne === 0 && openTwo === false && openThree === false) {
         myFig1.classList.add("hovered");
         for (let i = 0; i < 3; i++) {
             cards[i].appendChild(expandBtns[i]);
@@ -159,6 +163,7 @@ myFig1.addEventListener("mouseleave", (e) => {
 });
 for (let j = 0; j < 3; j++) {
     expandBtns[j].addEventListener("click", (e) => {
+        openOne = true;
         timedOne = 0;
         if (getWidth() < 992) {
             one[0].style.animation = "mobileTopSlide 1.5s forwards";
@@ -186,7 +191,7 @@ for (let j = 0; j < 3; j++) {
                     two[0].style.animation = "onMiddle 9s 1.5s ease infinite";
                     three[0].style.animation = "onBottom 9s 1.5s ease infinite";
                 }, 1500);
-
+                openOne = false;
                 if (getWidth() < 992) {
                     one[0].style.animation = "mobileTopSlideBack 1.5s forwards";
                     two[0].style.animation =
@@ -213,7 +218,7 @@ for (let j = 0; j < 3; j++) {
                     two[0].style.animation = "onMiddle 9s 1.5s ease infinite";
                     three[0].style.animation = "onBottom 9s 1.5s ease infinite";
                 }, 1500);
-
+                openOne = false;
                 if (getWidth() < 992) {
                     one[0].style.animation = "mobileTopSlideBack 1.5s forwards";
                     two[0].style.animation =
@@ -255,7 +260,7 @@ let clickTwo = 0;
 let timedTwo = 0;
 
 myFig2.addEventListener("mouseenter", (e) => {
-    if (clickTwo === 0) {
+    if (clickTwo === 0 && openOne === false && openThree === false) {
         myFig2.classList.add("hovered");
         for (let i = 3; i < 6; i++) {
             cards[i].appendChild(expandBtns[i]);
@@ -272,6 +277,7 @@ myFig2.addEventListener("mouseleave", (e) => {
 });
 for (let j = 3; j < 6; j++) {
     expandBtns[j].addEventListener("click", (e) => {
+        openTwo = true;
         timedTwo = 0;
         if (getWidth() < 992) {
             one[1].style.animation = "mobileTopSlide 1.5s forwards";
@@ -298,7 +304,7 @@ for (let j = 3; j < 6; j++) {
                     two[1].style.animation = "onMiddle 9s 1.5s ease infinite";
                     three[1].style.animation = "onBottom 9s 1.5s ease infinite";
                 }, 1500);
-
+                openTwo = false;
                 if (getWidth() < 992) {
                     one[1].style.animation = "mobileTopSlideBack 1.5s forwards";
                     two[1].style.animation =
@@ -325,6 +331,7 @@ for (let j = 3; j < 6; j++) {
                     two[1].style.animation = "onMiddle 9s 1.5s ease infinite";
                     three[1].style.animation = "onBottom 9s 1.5s ease infinite";
                 }, 1500);
+                openTwo = false;
                 if (getWidth() < 992) {
                     one[1].style.animation = "mobileTopSlideBack 1.5s forwards";
                     two[1].style.animation =
@@ -366,7 +373,7 @@ let clickThree = 0;
 let timedThree = 0;
 
 myFig3.addEventListener("mouseenter", (e) => {
-    if (clickThree === 0) {
+    if (clickThree === 0 && openTwo === false && openOne === false) {
         myFig3.classList.add("hovered");
         for (let i = 6; i < 9; i++) {
             cards[i].appendChild(expandBtns[i]);
@@ -383,6 +390,7 @@ myFig3.addEventListener("mouseleave", (e) => {
 });
 for (let j = 6; j < 9; j++) {
     expandBtns[j].addEventListener("click", (e) => {
+        openThree = true;
         timedThree = 0;
         if (getWidth() < 992) {
             body.classList.add("heightMob");
@@ -410,6 +418,7 @@ for (let j = 6; j < 9; j++) {
                     two[2].style.animation = "onMiddle 9s 1.5s ease infinite";
                     three[2].style.animation = "onBottom 9s 1.5s ease infinite";
                 }, 1500);
+                openThree = false;
                 if (getWidth() < 992) {
                     one[2].style.animation = "mobileTopSlideBack 1.5s forwards";
                     two[2].style.animation =
@@ -439,6 +448,7 @@ for (let j = 6; j < 9; j++) {
                     two[2].style.animation = "onMiddle 9s 1.5s ease infinite";
                     three[2].style.animation = "onBottom 9s 1.5s ease infinite";
                 }, 1500);
+                openThree = false;
                 if (getWidth() < 992) {
                     one[2].style.animation = "mobileTopSlideBack 1.5s forwards";
                     two[2].style.animation =
