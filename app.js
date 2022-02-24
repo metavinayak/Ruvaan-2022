@@ -4,7 +4,7 @@ const passport = require("passport");
 const passportLocalMongoose = require("passport-local-mongoose");
 const express = require("express");
 const ejs = require("ejs");
-const ejsMate = require('ejs-mate');
+const ejsMate = require("ejs-mate");
 const mongoose = require("mongoose");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const findOrCreate = require("mongoose-findorcreate");
@@ -18,7 +18,7 @@ app.use(express.static("public"));
 // app.use(express.static(require('path').join(__dirname, 'public')));
 
 app.use(express.urlencoded({ extended: true }));
-app.engine('ejs', ejsMate)
+app.engine("ejs", ejsMate);
 app.set("view engine", "ejs");
 
 // app.use(session({
@@ -78,7 +78,8 @@ app.set("view engine", "ejs");
 
 // ROUTES
 app.get("/", function(req, res) {
-    res.render("home", {});
+    // res.render("home", {});
+    res.redirect('/events');
 });
 app.get("/about", function(req, res) {
     res.render("about", {});
@@ -94,9 +95,15 @@ app.get("/sponsors", function(req, res) {
 });
 app.get("/faq", function(req, res) {
     res.render("faq", {});
-})
+});
 app.get("/team", function(req, res) {
     res.render("team", {});
+});
+app.get("/workshop", function(req, res) {
+    res.render("workshop", {});
+});
+app.get("/merchandise", function(req, res) {
+    res.render("merchandise", {});
 });
 
 // Subscription or Contact form submission
@@ -123,7 +130,7 @@ app.post("/subscribe", (req, res) => {
 
         // send mail with defined transport object
         let info = await transporter.sendMail({
-            from: '', // sender address
+            from: "", // sender address
             to: subscriber, // list of receivers
             subject: "Subscription", // Subject line
             text: "Hello world", // plain text body
