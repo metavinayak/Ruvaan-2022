@@ -97,3 +97,20 @@ a {
         box-shadow: 0 0 0 0 rgba(90, 153, 212, 0);
     }
 }
+
+/* image hover for mechandise pic */
+
+.img-container {
+    width: 100%;
+    opacity: 1;   
+    transition: opacity 1500ms linear 0s;
+    overflow:hidden;
+}
+.img-container:hover {
+    opacity: 0.6;
+    color: #d4cccc;   
+}
+.img-container:hover img{
+    transition: transform 8500ms linear 0s;
+    transform: scale(1.05, 1.05);
+}
