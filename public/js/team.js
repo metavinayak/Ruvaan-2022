@@ -13,8 +13,10 @@ const data = [
     ["team_images/antriksh.jpg", "Antriksh Mehta", "#", "https://www.instagram.com/un_.triksh/", "https://www.linkedin.com/in/antriksh-mehta-a65804223"],
     ["team_images/hiya.jpg", "Hiya Jain ", "#", "https://www.instagram.com/_hiya.jain/", "https://www.linkedin.com/in/hiya-jain-6521b6215/"],
     ["team_images/pushkar.jpg", "Pushkar Patel", "https://www.facebook.com/pushkar.patel.739326", "https://www.instagram.com/pushkar.patel.739326/", "#"],
+    ["team_images/male.jpg", "Piyush Verma", "#", "#", "#"],
     ["team_images/rishabh.jpg", "Rishabh Maheshwari ", "https://www.facebook.com/rishabh.maheshwari.792", "#", "https://www.linkedin.com/in/rishabh-maheshwari-41189a224/"],
-    ["team_images/vinayak.jpg", "Vinayak Sachan", "#", "#", "https://www.linkedin.com/in/vinayak-sachan-83a08121b"]
+    ["team_images/vinayak.jpg", "Vinayak Sachan", "#", "#", "https://www.linkedin.com/in/vinayak-sachan-83a08121b"],
+    ["team_images/yash.jpg", "Yash Sharma", "#", "#", "#"]
 ]
 const person_img = document.querySelectorAll(".person-img");
 const names = document.querySelectorAll(".name");
