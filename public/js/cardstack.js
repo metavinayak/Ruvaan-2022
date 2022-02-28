@@ -10,7 +10,7 @@ const events = [{
     },
     {
         title: "MUN",
-        content: "Human history has shared a common destiny. But, over the years geopolitical realities brought whole new ambitions, motives and tactics. United Nations brought significant changes to the world from its commencement.\nThe legacy continues as delegates would forge meaningful alliances, plan strategic solutions to the most pressing question for humanity to overcome while maintaining your nation’s self-interests. Find out if you are a cut above the rest at this edition of  IIT Mandi Model United Nations.",
+        content: "Human history has shared a common destiny. But, over the years geopolitical realities brought whole new ambitions, motives and tactics. United Nations brought significant changes to the world from its commencement.\nThe legacy continues as delegates would forge meaningful alliances, plan strategic solutions to the most pressing question for humanity to overcome while maintaining your nation's self-interests. Find out if you are a cut above the rest at this edition of  IIT Mandi Model United Nations.",
         image: "https://thumbs.gfycat.com/PaltryBitterChameleon-max-1mb.gif",
     },
     {
@@ -20,22 +20,22 @@ const events = [{
     },
     {
         title: "General Quiz",
-        content: "Everyone knows who landed on the moon first, but do you know their space module remained on the moon's surface for 21hrs and 36 minutes. Are you a facts geek who likes to peruse through all the sections of a newspaper?\nDoes your knowledge run deep and wide into the fields of sports, history, politics, geography, economy, music and much more? We have got you covered. This is your chance to exhibit your profound general knowledge at IIT Mandi’s General Quiz.",
+        content: "Everyone knows who landed on the moon first, but do you know their space module remained on the moon's surface for 21hrs and 36 minutes. Are you a facts geek who likes to peruse through all the sections of a newspaper?\nDoes your knowledge run deep and wide into the fields of sports, history, politics, geography, economy, music and much more? We have got you covered. This is your chance to exhibit your profound general knowledge at IIT Mandi's General Quiz.",
         image: "https://thumbs.gfycat.com/PaltryBitterChameleon-max-1mb.gif",
     },
     {
         title: "Stand-Up Comedy",
-        content: "In these tough times amidst the global pandemic, we must not forget the age-old golden saying, 'laughter is the best medicine'! And what better way could there possibly be to overdose ourselves with jokes than with some witty stand-up comedy?\nIf you are an aspiring comedian who dreams to have an entire hall of audience laugh uproariously at one of your jokes, or just a self-proclaimed class clown, this is your chance to hit the ground running. Show us that your way with words can tickle the masses into catching their breaths and stand a chance to be the funniest of ‘em all!",
+        content: "In these tough times amidst the global pandemic, we must not forget the age-old golden saying, 'laughter is the best medicine'! And what better way could there possibly be to overdose ourselves with jokes than with some witty stand-up comedy?\nIf you are an aspiring comedian who dreams to have an entire hall of audience laugh uproariously at one of your jokes, or just a self-proclaimed class clown, this is your chance to hit the ground running. Show us that your way with words can tickle the masses into catching their breaths and stand a chance to be the funniest of 'em all!",
         image: "https://thumbs.gfycat.com/PaltryBitterChameleon-max-1mb.gif",
     },
     {
         title: "Biggest Liar",
-        content: "Remember that one time when you completely forgot about the assignment’s deadline and had to convince your professor that you were umm…sick!\nWe shall be honest this one last time. Humans Lie. That’s a fact.  But, do you possess the silver tongue to spin a perfect web of lies and bluffs? Do you have the persuasive skills to make all other fibsters believe in your flawlessly fabricated falsehood? This is your opportunity to exhibit your unsung talents of deception, coaxing and yes, lying!",
+        content: "Remember that one time when you completely forgot about the assignment's deadline and had to convince your professor that you were umm…sick!\nWe shall be honest this one last time. Humans Lie. That's a fact.  But, do you possess the silver tongue to spin a perfect web of lies and bluffs? Do you have the persuasive skills to make all other fibsters believe in your flawlessly fabricated falsehood? This is your opportunity to exhibit your unsung talents of deception, coaxing and yes, lying!",
         image: "https://thumbs.gfycat.com/PaltryBitterChameleon-max-1mb.gif",
     },
     {
         title: "Literary Quiz",
-        content: "Are you a Potterhead? Or perhaps you’re into Indian authors like Amish or Amitav? Possibly you are intrigued by the likes of Saki or Gulzar?  Whatever may be your go-to genre, one thing we all would agree to is that nothing beats a Sunday afternoon snuck under a cosy blanket with a good read to keep you company\nSo fellow bookworms, the time has come for you to reveal the gazillion titles you have chewed upon for how there could be a literature fest without a contest to gauge your literary knowledge!",
+        content: "Are you a Potterhead? Or perhaps you're into Indian authors like Amish or Amitav? Possibly you are intrigued by the likes of Saki or Gulzar?  Whatever may be your go-to genre, one thing we all would agree to is that nothing beats a Sunday afternoon snuck under a cosy blanket with a good read to keep you company\nSo fellow bookworms, the time has come for you to reveal the gazillion titles you have chewed upon for how there could be a literature fest without a contest to gauge your literary knowledge!",
         image: "https://thumbs.gfycat.com/PaltryBitterChameleon-max-1mb.gif",
     },
     {
@@ -50,12 +50,12 @@ const events = [{
     },
     {
         title: "Fan-Fiction",
-        content: "What if you could play with the strings of destiny and reverse the tragic deaths in Game of Thrones? What if it was someone else that wielded the infinity gauntlet in Endgame? What if Deku never obtained a quirk and embarked on the dark path of becoming a villain?\nIf you are an avid reader of fiction or a cinephile, it is no secret that thoughts of different narratives in the story engulf you and you can't help but wonder sometimes, what if...\nNow is the time to let your imagination flow seamlessly and weave those thoughts into words. Whatever it may be, a new character arc, unexpected twists, or story endings you dreamt of, we are sure it’s bound to leave the readers awed.",
+        content: "What if you could play with the strings of destiny and reverse the tragic deaths in Game of Thrones? What if it was someone else that wielded the infinity gauntlet in Endgame? What if Deku never obtained a quirk and embarked on the dark path of becoming a villain?\nIf you are an avid reader of fiction or a cinephile, it is no secret that thoughts of different narratives in the story engulf you and you can't help but wonder sometimes, what if...\nNow is the time to let your imagination flow seamlessly and weave those thoughts into words. Whatever it may be, a new character arc, unexpected twists, or story endings you dreamt of, we are sure it's bound to leave the readers awed.",
         image: "https://thumbs.gfycat.com/PaltryBitterChameleon-max-1mb.gif",
     },
     {
         title: "Bazinga",
-        content: "In our lives which are as hectic as that of a ‘Family Man’, a binge-watch session surely is a feast for us web-series admirers. Whether you are a fan of episodic sci-fi, love to see your adventure-fantasy games and novels come to life or have a thing for high school romances with mind-bending thriller plots, there is no denial that you are the ‘Harshad Mehta’ of web series. Ha, you bet!\nSo, Quiz it up as you fight in a battle royale of riddles, puzzles and questions on your favourite shows and stand a chance to grab your share of some Spanish mint. ",
+        content: "In our lives which are as hectic as that of a 'Family Man', a binge-watch session surely is a feast for us web-series admirers. Whether you are a fan of episodic sci-fi, love to see your adventure-fantasy games and novels come to life or have a thing for high school romances with mind-bending thriller plots, there is no denial that you are the 'Harshad Mehta' of web series. Ha, you bet!\nSo, Quiz it up as you fight in a battle royale of riddles, puzzles and questions on your favourite shows and stand a chance to grab your share of some Spanish mint. ",
         image: "https://thumbs.gfycat.com/PaltryBitterChameleon-max-1mb.gif",
     },
     {
