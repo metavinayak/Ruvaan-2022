@@ -21,6 +21,10 @@ app.use(express.urlencoded({ extended: true }));
 app.engine("ejs", ejsMate);
 app.set("view engine", "ejs");
 
+app.use('/robots.txt', function(req, res, next) {
+    res.type('text/plain')
+    res.send("User-agent: *\nDisallow: /team_images");
+});
 // app.use(session({
 //     secret : process.env.SECRET,
 //     resave : false,
@@ -105,7 +109,6 @@ app.get("/workshop", function(req, res) {
 app.get("/merchandise", function(req, res) {
     res.render("merchandise", {});
 });
-
 // Subscription or Contact form submission
 app.post("/subscribe", (req, res) => {
     console.log(req.body);
