@@ -31,7 +31,6 @@ h6 {
     font-family: "Montserrat", sans-serif;
 }
 
-
 /*--------------------------------------------------------------
 # Back to top button
 ---------------------------------------------------------------*/
@@ -65,7 +64,6 @@ h6 {
     visibility: visible;
     opacity: 1;
 }
-
 
 /* Navbar */
 
@@ -132,11 +130,9 @@ h6 {
     margin: 0 10px 0 10px;
 } */
 
-
 /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
-
 
 /**
 * Desktop Navigation 
@@ -181,7 +177,7 @@ h6 {
 .navbar a:hover,
 .navbar .active,
 .navbar .active:focus,
-.navbar li:hover>a {
+.navbar li:hover > a {
     color: var(--content-bg);
 }
 
@@ -217,11 +213,11 @@ h6 {
 
 .navbar .dropdown ul a:hover,
 .navbar .dropdown ul .active:hover,
-.navbar .dropdown ul li:hover>a {
+.navbar .dropdown ul li:hover > a {
     color: var(--content-bg);
 }
 
-.navbar .dropdown:hover>ul {
+.navbar .dropdown:hover > ul {
     opacity: 1;
     top: 100%;
     visibility: visible;
@@ -233,7 +229,7 @@ h6 {
     visibility: hidden;
 }
 
-.navbar .dropdown .dropdown:hover>ul {
+.navbar .dropdown .dropdown:hover > ul {
     opacity: 1;
     top: 0;
     left: 100%;
@@ -244,11 +240,10 @@ h6 {
     .navbar .dropdown .dropdown ul {
         left: -90%;
     }
-    .navbar .dropdown .dropdown:hover>ul {
+    .navbar .dropdown .dropdown:hover > ul {
         left: -100%;
     }
 }
-
 
 /**
 * Mobile Navigation 
@@ -315,7 +310,7 @@ h6 {
 
 .navbar-mobile a:hover,
 .navbar-mobile .active,
-.navbar-mobile li:hover>a {
+.navbar-mobile li:hover > a {
     color: var(--content-bg);
 }
 
@@ -349,14 +344,13 @@ h6 {
 
 .navbar-mobile .dropdown ul a:hover,
 .navbar-mobile .dropdown ul .active:hover,
-.navbar-mobile .dropdown ul li:hover>a {
+.navbar-mobile .dropdown ul li:hover > a {
     color: var(--content-bg);
 }
 
-.navbar-mobile .dropdown>.dropdown-active {
+.navbar-mobile .dropdown > .dropdown-active {
     display: block;
 }
-
 
 /*--------------------------------------------------------------
 # Footer
@@ -493,7 +487,6 @@ h6 {
     padding-top: 5px;
 }
 
-
 /* Contact Form */
 
 .success-icon {
@@ -528,14 +521,12 @@ h6 {
     flex-wrap: wrap;
 }
 
-
 /* Firefox */
 
 * {
     scrollbar-width: auto;
     scrollbar-color: var(--scroll-fg) var(--scroll-bg);
 }
-
 
 /* Chrome, Edge, and Safari */
 
@@ -553,14 +544,13 @@ h6 {
     border: 0px dotted var(--plain-bg) fff;
 }
 
-
 /*___ rishi */
 
 body {
     background-color: #f7f7f7;
 }
 
-.card-body {
+/* .card-body {
     text-align: center;
 }
 
@@ -578,10 +568,55 @@ body {
 
 .card {
     width: 18.75rem !important;
+} */
+
+#eventBgImage {
+    padding-top: 0.1em;
+    background-image: url('https://previews.123rf.com/images/ke77kz/ke77kz2012/ke77kz201200135/160845284-.jpg');
+    background-size: contain;
+}
+
+.abc {
+    height: 37.5em;
+}
+
+#carouselExampleIndicators {
+    max-width: 576px;
+}
+
+.blur-filter {
+    -webkit-filter: blur(2.5px);
+    -moz-filter: blur(2.5px);
+    -o-filter: blur(2.5px);
+    -ms-filter: blur(2.5px);
+    filter: blur(2.5px);
+}
+
+@media (max-width: 768px) {
+    .abc {
+        height: 35em;
+    }
+}
+
+@media (min-width: 1280px) {
+    #eventBgImage {
+        background-size: cover;
+    }
+}
+
+@media (max-width: 576px) {
+    .abc {
+        height: 30em;
+    }
+
+    .carousel-title {
+        margin-bottom: 1em;
+        font-size: x-large;
+    }
 }
 
 /* Social MEdia icons in navbar css */
-  
+
 .social-buttons {
     display: flex;
     flex-wrap: wrap;
@@ -604,7 +639,7 @@ body {
     text-align: center;
 }
 .social-button::after {
-    content: '';
+    content: "";
     position: absolute;
     top: -1px;
     left: 50%;
@@ -614,15 +649,18 @@ body {
     border-radius: 100%;
     transition: 0.3s;
 }
-.social-button:focus, .social-button:hover {
+.social-button:focus,
+.social-button:hover {
     color: #fff;
 }
-.social-button:focus::after, .social-button:hover::after {
+.social-button:focus::after,
+.social-button:hover::after {
     width: calc(100% + 2px);
     height: calc(100% + 2px);
     margin-left: calc(-50% - 1px);
 }
-.social-button i, .social-button svg {
+.social-button i,
+.social-button svg {
     position: relative;
     z-index: 1;
     transition: 0.3s;

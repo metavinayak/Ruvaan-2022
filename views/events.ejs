@@ -1,207 +1,49 @@
 <% layout('layouts/boilerplate')%>
-  <div class="container my-5 mx-auto">
-    <div class="row my-2 mx-auto">
-      <div class="col mt-4 px-1">
-        <div class="card mx-auto text-white bg-dark" style="width: 18rem;">
-          <img src="" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h3 class="card-title mt-1">Title</h3>
-            <div class="cardB">
-              <button type="button" class="btn btn-outline-dark eventModal mt-2" data-bs-toggle="modal"
-                data-bs-target="#exampleModal">
-                Details
-              </button>
-            </div>
+  <div class="container my-5 pb-5 mx-auto event" id="eventBgImage">
+    <!-- Carousel -->
+    <div id="carouselExampleIndicators" class="carousel slide carousel-fade mx-auto my-3" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <% for(let i=0 ; i < 13 ; i++) { %>
+          <div class="carousel-item <%= i === 0 ? 'active' : '' %>">
+            <img src="" class="d-block w-100 carousel-image abc" alt="...">
+            <div class="carousel-caption d-md-block">
+              <h4 class="carousel-title"></h4>
+              <p class="carousel-short d-none d-md-block"></p>
+              <div class="btn-group" role="group" aria-label="Basic outlined example">
+                <button type="button" class="btn btn-success">Register</button>
+                <button type="button" class="btn btn-dark eventDetail" data-bs-toggle="modal"
+                data-bs-target="#exampleModal">Explore</button>
+              </div>
+            </div>            
           </div>
-        </div>
+          <% } %>
       </div>
-      <div class="col mt-4 px-1">
-        <div class="card mx-auto text-white bg-dark" style="width: 18rem;">
-          <img src="" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h3 class="card-title mt-1">Title</h3>
-            <div class="cardB">
-              <button type="button" class="btn btn-outline-dark eventModal mt-2" data-bs-toggle="modal"
-                data-bs-target="#exampleModal">
-                Details
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col mt-4 px-1">
-        <div class="card mx-auto text-white bg-dark" style="width: 18rem;">
-          <img src="" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h3 class="card-title mt-1">Title</h3>
-            <div class="cardB">
-              <button type="button" class="btn btn-outline-dark eventModal mt-2" data-bs-toggle="modal"
-                data-bs-target="#exampleModal">
-                Details
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col mt-4 px-1">
-        <div class="card mx-auto text-white bg-dark" style="width: 18rem;">
-          <img src="" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h3 class="card-title mt-1">Title</h3>
-            <div class="cardB">
-              <button type="button" class="btn btn-outline-dark eventModal mt-2" data-bs-toggle="modal"
-                data-bs-target="#exampleModal">
-                Details
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col mt-4 px-1">
-        <div class="card mx-auto text-white bg-dark" style="width: 18rem;">
-          <img src="" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h3 class="card-title mt-1">Title</h3>
-            <div class="cardB">
-              <button type="button" class="btn btn-outline-dark eventModal mt-2" data-bs-toggle="modal"
-                data-bs-target="#exampleModal">
-                Details
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col mt-4 px-1">
-        <div class="card mx-auto text-white bg-dark" style="width: 18rem;">
-          <img src="" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h3 class="card-title mt-1">Title</h3>
-            <div class="cardB">
-              <button type="button" class="btn btn-outline-dark eventModal mt-2" data-bs-toggle="modal"
-                data-bs-target="#exampleModal">
-                Details
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col mt-4 px-1">
-        <div class="card mx-auto text-white bg-dark" style="width: 18rem;">
-          <img src="" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h3 class="card-title mt-1">Title</h3>
-            <div class="cardB">
-              <button type="button" class="btn btn-outline-dark eventModal mt-2" data-bs-toggle="modal"
-                data-bs-target="#exampleModal">
-                Details
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col mt-4 px-1">
-        <div class="card mx-auto text-white bg-dark" style="width: 18rem;">
-          <img src="" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h3 class="card-title mt-1">Title</h3>
-            <div class="cardB">
-              <button type="button" class="btn btn-outline-dark eventModal mt-2" data-bs-toggle="modal"
-                data-bs-target="#exampleModal">
-                Details
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col mt-4 px-1">
-        <div class="card mx-auto text-white bg-dark" style="width: 18rem;">
-          <img src="" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h3 class="card-title mt-1">Title</h3>
-            <div class="cardB">
-              <button type="button" class="btn btn-outline-dark eventModal mt-2" data-bs-toggle="modal"
-                data-bs-target="#exampleModal">
-                Details
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col mt-4 px-1">
-        <div class="card mx-auto text-white bg-dark" style="width: 18rem;">
-          <img src="" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h3 class="card-title mt-1">Title</h3>
-            <div class="cardB">
-              <button type="button" class="btn btn-outline-dark eventModal mt-2" data-bs-toggle="modal"
-                data-bs-target="#exampleModal">
-                Details
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col mt-4 px-1">
-        <div class="card mx-auto text-white bg-dark" style="width: 18rem;">
-          <img src="" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h3 class="card-title mt-1">Title</h3>
-            <div class="cardB">
-              <button type="button" class="btn btn-outline-dark eventModal mt-2" data-bs-toggle="modal"
-                data-bs-target="#exampleModal">
-                Details
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col mt-4 px-1">
-        <div class="card mx-auto text-white bg-dark" style="width: 18rem;">
-          <img src="" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h3 class="card-title mt-1">Title</h3>
-            <div class="cardB">
-              <button type="button" class="btn btn-outline-dark eventModal mt-2" data-bs-toggle="modal"
-                data-bs-target="#exampleModal">
-                Details
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row my-2 mx-auto">
-      <div class="col my-4 px-1 mx-auto">
-        <div class="card mx-auto text-white bg-dark" style="width: 18rem;">
-          <img src="" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h3 class="card-title mt-1">Title</h3>
-            <div class="cardB">
-              <button type="button" class="btn btn-outline-dark eventModal mt-2" data-bs-toggle="modal"
-                data-bs-target="#exampleModal">
-                Details
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
   </div>
-  </div>
-
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel"></h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <h2 class="modal-title" id="exampleModalLabel"></h2>
+          <button type="button" class="btn-close modalClose" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body">
-          
+        <div class="modal-body lead">
+  
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Register</button>
+          <button type="button" class="btn btn-lg btn-dark modalClose" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-success btn-lg">Register</button>
         </div>
       </div>
     </div>
