@@ -1,5 +1,6 @@
 const data = [
     ["team_images/male.jpg", "Devansh Kochar", "#", "#", "#"],
+    ["team_images/ridhi.jpg", "Ridhi Ratan", "#", "#", "#"],
     ["team_images/madhumita.jpg", "V Madhumita ", "https://www.facebook.com/madhumita.vadlamannati", "https://www.linkedin.com/in/madhumita-vadlamannati", "#", "#"],
     ["team_images/jahanvi.jpg", "Jahanvi Chaudhary ", "#", "https://instagram.com/jahanvi_lastleaf?utm_medium=copy_link", "#"],
     ["team_images/shreya.jpg", "Shreya Sharma", "#", "https://www.instagram.com/shreyasharma79032_/ ", "www.linkedin.com/in/shreya-sharma-4b9378180"],
@@ -12,8 +13,8 @@ const data = [
     ["team_images/phil.jpg", "Phil ", "https://m.facebook.com/100057238011161/", "https://www.instagram.com/philll.gif/", "https://www.linkedin.com/in/awantikadeora"],
     ["team_images/antriksh.jpg", "Antriksh Mehta", "#", "https://www.instagram.com/un_.triksh/", "https://www.linkedin.com/in/antriksh-mehta-a65804223"],
     ["team_images/hiya.jpg", "Hiya Jain ", "#", "https://www.instagram.com/_hiya.jain/", "https://www.linkedin.com/in/hiya-jain-6521b6215/"],
+    ["team_images/piyush.jpg", "Piyush Verma", "#", "#", "https://www.linkedin.com/in/piyush-verma-4a7846122/"],
     ["team_images/pushkar.jpg", "Pushkar Patel", "https://www.facebook.com/pushkar.patel.739326", "https://www.instagram.com/pushkar.patel.739326/", "#"],
-    ["team_images/male.jpg", "Piyush Verma", "#", "#", "#"],
     ["team_images/rishabh.jpg", "Rishabh Maheshwari ", "https://www.facebook.com/rishabh.maheshwari.792", "#", "https://www.linkedin.com/in/rishabh-maheshwari-41189a224/"],
     ["team_images/vinayak.jpg", "Vinayak Sachan", "#", "#", "https://www.linkedin.com/in/vinayak-sachan-83a08121b"],
     ["team_images/yash.jpg", "Yash Sharma", "#", "#", "#"]
