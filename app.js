@@ -118,32 +118,32 @@ app.post("/subscribe", (req, res) => {
         const subscriber = req.body.email;
 
         // create reusable transporter object using the default SMTP transport
-        let transporter = nodemailer.createTransport({
-            host: "smtp-mail.outlook.com",
+        const nodemailer = require('nodemailer');
+
+        mailConfig = {
+            host: process.env.mail_host,
             port: 587,
-            secure: false, // true for 465, false for other ports
             auth: {
-                user: "", // generated ethereal user
-                pass: process.env.mailPASS, // generated ethereal password
+                user: process.env.mail_user,
+                pass: process.env.mail_pass
             },
             tls: {
-                rejectUnauthorized: false,
-            },
-        });
-
-        // send mail with defined transport object
+                rejectUnauthorized: false
+            }
+        };
+        let transporter = nodemailer.createTransport(mailConfig);
         let info = await transporter.sendMail({
-            from: "", // sender address
-            to: subscriber, // list of receivers
-            subject: "Subscription", // Subject line
-            text: "Hello world", // plain text body
-            html: "You are subscribed", // html body
+            from: process.env.mail_user,
+            to: subscriber,
+            subject: "Successfully Subscribed | Ruvaan'22",
+            // text: 'Dear User,you have been successfully subscribed to mails for Ruvaan.',
+            html: "<h3>Dear User,you have been successfully subscribed to mails for Ruvaan.</h3><em>In order to unsubscribe,Click <a href='../unsubscribe'>here</a></em>", // html body
         });
-
         console.log("Message sent: %s", info.messageId);
         console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
     }
     main().catch(console.error);
+    res.redirect('/');
 });
 
 app.listen(process.env.PORT || 3000, function() {
