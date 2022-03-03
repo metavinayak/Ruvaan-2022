@@ -14,13 +14,6 @@ const events = [
         image: "https://thumbs.gfycat.com/PaltryBitterChameleon-max-1mb.gif",
     },
     {
-        title: "MUN",
-        content:
-            "Human history has shared a common destiny. But, over the years geopolitical realities brought whole new ambitions, motives and tactics. United Nations brought significant changes to the world from its commencement.\nThe legacy continues as delegates would forge meaningful alliances, plan strategic solutions to the most pressing question for humanity to overcome while maintaining your nation’s self-interests. Find out if you are a cut above the rest at this edition of  IIT Mandi Model United Nations.",
-        short: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis dolorem laudantium, sunt repudiandae eos sit exercitationem ipsa, velit sint quisquam quod soluta voluptas in consequuntur quas accusamus debitis reprehenderit odit?",
-        image: "https://thumbs.gfycat.com/PaltryBitterChameleon-max-1mb.gif",
-    },
-    {
         title: "Poetry Slam",
         content:
             "Poetry is introspection, destruction and renaissance of words and emotions. Voice is a shuttle to convey those emotions to the audience. Together, they open a window to the poet's soul and give us a glimpse of their encounter.\nCreate a composition with your vibrantly coloured words, give life to those words with your artistic voice and paint a masterpiece to be heard by the masses.",
@@ -90,57 +83,58 @@ const events = [
         short: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis dolorem laudantium, sunt repudiandae eos sit exercitationem ipsa, velit sint quisquam quod soluta voluptas in consequuntur quas accusamus debitis reprehenderit odit?",
         image: "https://thumbs.gfycat.com/PaltryBitterChameleon-max-1mb.gif",
     },
+    {
+        title: "MUN",
+        content:
+            "Human history has shared a common destiny. But, over the years geopolitical realities brought whole new ambitions, motives and tactics. United Nations brought significant changes to the world from its commencement.\nThe legacy continues as delegates would forge meaningful alliances, plan strategic solutions to the most pressing question for humanity to overcome while maintaining your nation’s self-interests. Find out if you are a cut above the rest at this edition of  IIT Mandi Model United Nations.",
+        short: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis dolorem laudantium, sunt repudiandae eos sit exercitationem ipsa, velit sint quisquam quod soluta voluptas in consequuntur quas accusamus debitis reprehenderit odit?",
+        image: "https://thumbs.gfycat.com/PaltryBitterChameleon-max-1mb.gif",
+    },
 ];
 
-const carouselTitles = document.querySelectorAll(".carousel-title");
-const carouselImages = document.querySelectorAll(".carousel-image");
-const carouselP = document.querySelectorAll(".carousel-short");
-const eventExploreBtns = document.querySelectorAll(".eventDetail");
-const modalTitle = document.querySelector(".modal-title");
-const modalBody = document.querySelector(".modal-body");
-const eventContainer = document.querySelector("#eventBgImage");
-const modalCloseBtns = document.querySelectorAll(".modalClose");
+window.onresize = function () {
+    location.reload();
+};
 
-for (let closeBtn of modalCloseBtns) {
-    closeBtn.addEventListener("click", (e) => {
-        if (eventContainer.classList.contains("blur-filter")) {
-            eventContainer.classList.remove("blur-filter");
-        }
+const imgs = document.querySelectorAll("img");
+for (let i = 0, l = imgs.length; i < l; i++) {
+    imgs[i].style.left =
+        (
+            45 -
+            35 * Math.cos(-0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)
+        ).toFixed(4) + "%";
+
+    imgs[i].style.top =
+        (
+            45 +
+            35 * Math.sin(-0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)
+        ).toFixed(4) + "%";
+}
+
+const eventsMenu = document.querySelector(".circular-menu");
+let width = eventsMenu.getBoundingClientRect().width;
+eventsMenu.style.height = `${width}px`;
+
+
+
+const cardTitle = document.querySelector(".card-title");
+const cardText = document.querySelector("p.card-text");
+const eventImgs = document.querySelectorAll(".eventImg");
+const paidEvent = document.querySelector(".center-img");
+
+cardTitle.innerText = `${events[0].title}`;
+cardText.innerText = `${events[0].content}`;
+
+for (let i = 0; i < 12; i++) {
+    eventImgs[i].addEventListener("click", (e) => {
+        cardTitle.innerText = `${events[i].title}`;
+        cardText.innerText = `${events[i].content}`;
+        e.stopPropagation();
     });
 }
 
-for (let i = 0; i < 13; i++) {
-    carouselTitles[i].innerText = `${events[i].title}`;
-    carouselImages[i].setAttribute("src", `${events[i].image}`);
-    carouselP[i].innerText = `${events[i].short}`;
-    eventExploreBtns[i].addEventListener("click", (e) => {
-        eventContainer.classList.add("blur-filter");
-        modalTitle.innerText = `${events[i].title}`;
-        modalBody.innerText = `${events[i].content}`;
-    });
-}
-
-// for (let btn of cardButtons) {
-//     btn.classList.add("none");
-// }
-
-// for (let i = 0; i < cards.length; i++) {
-//     cards[i].addEventListener("mouseenter", (e) => {
-//         cardButtons[i].classList.remove("none");
-//     });
-//     cards[i].addEventListener("mouseleave", (e) => {
-//         cardButtons[i].classList.add("none");
-//     });
-// }
-
-// for (let i = 0; i < cards.length; i++) {
-//     cardImages[i].setAttribute("src", `${events[i].image}`);
-//     cardTitles[i].innerText = `${events[i].title}`;
-// }
-
-// for (let i = 0; i < cardButtons.length; i++) {
-//     cardButtons[i].addEventListener('click', (e) => {
-// modalTitle.innerText = `${events[i].title}`;
-// modalBody.innerText = `${events[i].content}`;
-//     })
-// }
+paidEvent.addEventListener('click', e => {
+    cardTitle.innerText = `${events[12].title}`;
+    cardText.innerText = `${events[12].content}`;
+    e.stopPropagation();
+})
