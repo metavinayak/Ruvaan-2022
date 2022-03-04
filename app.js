@@ -109,6 +109,9 @@ app.get("/workshop", function(req, res) {
 app.get("/merchandise", function(req, res) {
     res.render("merchandise", {});
 });
+app.get("/register", function(req, res) {
+    res.render("register", {});
+});
 // Subscription or Contact form submission
 app.post("/subscribe", (req, res) => {
     console.log(req.body);
