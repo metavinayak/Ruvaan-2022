@@ -78,9 +78,9 @@ const events = [{
     },
 ];
 
-// window.onresize = function() {
-//     location.reload();
-// };
+window.onresize = function() {
+    location.reload();
+};
 
 const imgs = document.querySelectorAll(".eventImg");
 for (let i = 0, l = imgs.length; i < l; i++) {
