@@ -82,18 +82,16 @@ const events = [{
 //     location.reload();
 // };
 
-const imgs = document.querySelectorAll("img");
+const imgs = document.querySelectorAll(".eventImg");
 for (let i = 0, l = imgs.length; i < l; i++) {
     imgs[i].style.left =
         (
-            45 -
-            35 * Math.cos(-0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)
+            45 - 35 * Math.cos(-0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)
         ).toFixed(4) + "%";
 
     imgs[i].style.top =
         (
-            45 +
-            35 * Math.sin(-0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)
+            45 + 35 * Math.sin(-0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)
         ).toFixed(4) + "%";
 }
 
