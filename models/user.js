@@ -15,8 +15,10 @@ const UserSchema = new Schema({
     phone: {
         type: String,
         required: true,
-        unique: true,
+        // unique: true,
     },
+    resetPasswordToken: String,
+    resetPasswordExpires: Date
 });
 UserSchema.plugin(passportLocalMongoose, { usernameField: 'email' });
 

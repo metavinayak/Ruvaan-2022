@@ -17,7 +17,9 @@
     },
     "homepage": "https://github.com/metavinayak/Ruvaan-2022#readme",
     "dependencies": {
+        "async": "^3.2.3",
         "connect-flash": "^0.1.1",
+        "crypto": "^1.0.1",
         "dotenv": "^15.0.0",
         "ejs": "^3.1.6",
         "ejs-mate": "^3.0.0",

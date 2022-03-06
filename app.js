@@ -13,6 +13,12 @@ const LocalStrategy = require("passport-local");
 // const _ = require('lodash');
 require("https").globalAgent.options.rejectUnauthorized = false;
 
+
+// const bcrypt = require('bcrypt-nodejs');
+const async = require('async');
+const crypto = require('crypto');
+
+
 ///////   Dependency requirements above    ///////
 const dbName = "Ruvaan"
 mongoose.connect(`mongodb://localhost:27017/${dbName}`, {
@@ -51,7 +57,6 @@ app.use(session(sessionConfig));
 app.use(flash());
 
 passport.use(User.createStrategy());
-// passport.use(new LocalStrategy(User.authenticate()));
 
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
@@ -98,12 +103,6 @@ app.get("/faq", function(req, res) {
 app.get("/team", function(req, res) {
     res.render("team", {});
 });
-// app.get("/workshop", function(req, res) {
-//     res.render("workshop", {});
-// });
-// app.get("/merchandise", function(req, res) {
-//     res.render("merchandise", {});
-// });
 app.get("/workshop", function(req, res) {
     res.render("under_construction", {});
 });
@@ -113,9 +112,24 @@ app.get("/merchandise", function(req, res) {
 app.get("/register", function(req, res) {
     res.render("register", {});
 });
-
+app.get('/forgot-password/', function(req, res) {
+    res.render('forgot_pass');
+});
+app.get('/reset/:token', function(req, res) {
+    User.findOne({ resetPasswordToken: req.params.token, resetPasswordExpires: { $gt: Date.now() } }, function(err, user) {
+        if (!user) {
+            req.flash('error', 'Password reset token is invalid or has expired.');
+            return res.redirect('/register');
+        } else {
+            res.render('reset', {
+                url: '/reset/' + req.params.token
+            });
+        }
+    });
+});
+////////////////////////////////////////////////////////////////////////////
 // POST requests below
-
+////////////////////////////////////////////////////////////////////////////
 app.post("/login",
     passport.authenticate("local", {
         failureFlash: true,
@@ -142,43 +156,101 @@ app.post("/register", async(req, res) => {
         res.redirect('register');
     }
 });
+app.post('/forgot', function(req, res, next) {
+    async.waterfall([
+        function(done) {
+            crypto.randomBytes(22, function(err, buf) {
+                var token = buf.toString('hex');
+                done(err, token);
+            });
+        },
+        function(token, done) {
+            User.findOne({ email: req.body.email }, function(err, user) {
+                if (!user) {
+                    req.flash('error', 'No account with that email address exists.');
+                    return res.redirect('/register');
+                }
 
-// Subscription or Contact form submission
-// app.post("/subscribe", (req, res) => {
-//     console.log(req.body);
+                user.resetPasswordToken = token;
+                user.resetPasswordExpires = Date.now() + 3600000; // 1 hour
 
-//     // SMTP Server
-//     async function main() {
-//         const subscriber = req.body.email;
+                user.save(function(err) {
+                    done(err, token, user);
+                });
+            });
+        },
+        function(token, user, done) {
+            const reset_url = '\n' + 'http://' + req.headers.host + '/reset/' + token + '\n';
 
-//         // create reusable transporter object using the default SMTP transport
-//         const nodemailer = require("nodemailer");
+            console.log(reset_url);
 
-//         mailConfig = {
-//             host: process.env.mail_host,
-//             port: 587,
-//             auth: {
-//                 user: process.env.mail_user,
-//                 pass: process.env.mail_pass,
-//             },
-//             tls: {
-//                 rejectUnauthorized: false,
-//             },
-//         };
-//         let transporter = nodemailer.createTransport(mailConfig);
-//         let info = await transporter.sendMail({
-//             from: process.env.mail_user,
-//             to: subscriber,
-//             subject: "Successfully Subscribed | Ruvaan'22",
-//             // text: 'Dear User,you have been successfully subscribed to mails for Ruvaan.',
-//             html: "<h3>Dear User,you have been successfully subscribed to mails for Ruvaan.</h3><em>In order to unsubscribe,Click <a href='../unsubscribe'>here</a></em>", // html body
-//         });
-//         console.log("Message sent: %s", info.messageId);
-//         console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
-//     }
-//     main().catch(console.error);
-//     res.redirect("/");
-// });
+            async function main() {
+                const forgetful_person = user.email;
+
+                const nodemailer = require("nodemailer");
+                mailConfig = {
+                    host: process.env.mail_host,
+                    port: 587,
+                    auth: {
+                        user: process.env.mail_user,
+                        pass: process.env.mail_pass,
+                    },
+                    tls: {
+                        rejectUnauthorized: false,
+                    },
+                };
+                let transporter = nodemailer.createTransport(mailConfig);
+                let info = await transporter.sendMail({
+                    from: process.env.mail_user,
+                    to: forgetful_person,
+                    subject: "Password Reset request | Ruvaan'22",
+                    // text: 'Dear User,you have been successfully subscribed to mails for Ruvaan.',
+                    html: "<h3>Dear User,a password reset request has initiated from your account.</h3><em>To change your password click here, Click the url below:</em><br>" + reset_url + "<br>If you did not request this, please ignore this email and your password will remain unchanged.\n", // html body
+                });
+            }
+            main().catch(console.error);
+
+            req.flash('success', 'Passsword reset mail send. Please check your mails');
+            // res.redirect('/events');
+            res.redirect('/register');
+
+        }
+    ], function(err) {
+        if (err) console.log(err);
+        res.redirect('/register');
+    });
+});
+app.post('/reset/:token', function(req, res) {
+    // async.waterfall([
+    //     function(done) {
+    User.findOne({ resetPasswordToken: req.params.token, resetPasswordExpires: { $gt: Date.now() } }, function(err, theuser) {
+        if (!theuser) {
+            req.flash('error', 'Password reset token is invalid or has expired.');
+            return res.redirect('back');
+        }
+        theuser.setPassword(req.body.password, function(err, theuser) {
+            if (err) {
+                console.log(err)
+                req.flash('error', 'Sorry something went wrong')
+                res.redirect('/register');
+            } else {
+                theuser.resetPasswordToken = undefined;
+                theuser.resetPasswordExpires = undefined;
+                theuser.save(function(err) {
+                    req.login(theuser, err => {
+                        req.flash('success', 'Passsword reset successful. Welcome!');
+                        // res.redirect('/events');
+                        res.redirect('/register');
+                    })
+                })
+            }
+        });
+    });
+    // },
+    // ], function(err) {
+    //     res.redirect('/');
+    // });
+});
 
 app.listen(process.env.PORT || 3000, function() {
     console.log("Server running on port 3000");
