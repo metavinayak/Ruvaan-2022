@@ -21,8 +21,8 @@ app.use(express.urlencoded({ extended: true }));
 app.engine("ejs", ejsMate);
 app.set("view engine", "ejs");
 
-app.use('/robots.txt', function(req, res, next) {
-    res.type('text/plain')
+app.use("/robots.txt", function(req, res, next) {
+    res.type("text/plain");
     res.send("User-agent: *\nDisallow: /team_images");
 });
 // app.use(session({
@@ -83,7 +83,7 @@ app.use('/robots.txt', function(req, res, next) {
 // ROUTES
 app.get("/", function(req, res) {
     // res.render("home", {});
-    res.redirect('/events');
+    res.redirect("/events");
 });
 app.get("/about", function(req, res) {
     res.render("about", {});
@@ -95,7 +95,8 @@ app.get("/events", function(req, res) {
     res.render("events", {});
 });
 app.get("/sponsors", function(req, res) {
-    res.render("sponsors", {});
+    res.render("under_construction", {});
+    // res.render("sponsors", {});
 });
 app.get("/faq", function(req, res) {
     res.render("faq", {});
@@ -103,11 +104,20 @@ app.get("/faq", function(req, res) {
 app.get("/team", function(req, res) {
     res.render("team", {});
 });
+// app.get("/workshop", function(req, res) {
+//     res.render("workshop", {});
+// });
+// app.get("/merchandise", function(req, res) {
+//     res.render("merchandise", {});
+// });
 app.get("/workshop", function(req, res) {
-    res.render("workshop", {});
+    res.render("under_construction", {});
 });
 app.get("/merchandise", function(req, res) {
-    res.render("merchandise", {});
+    res.render("under_construction", {});
+});
+app.get("/register", function(req, res) {
+    res.render("register", {});
 });
 app.get("/register", function(req, res) {
     res.render("register", {});
@@ -121,18 +131,18 @@ app.post("/subscribe", (req, res) => {
         const subscriber = req.body.email;
 
         // create reusable transporter object using the default SMTP transport
-        const nodemailer = require('nodemailer');
+        const nodemailer = require("nodemailer");
 
         mailConfig = {
             host: process.env.mail_host,
             port: 587,
             auth: {
                 user: process.env.mail_user,
-                pass: process.env.mail_pass
+                pass: process.env.mail_pass,
             },
             tls: {
-                rejectUnauthorized: false
-            }
+                rejectUnauthorized: false,
+            },
         };
         let transporter = nodemailer.createTransport(mailConfig);
         let info = await transporter.sendMail({
@@ -146,7 +156,7 @@ app.post("/subscribe", (req, res) => {
         console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
     }
     main().catch(console.error);
-    res.redirect('/');
+    res.redirect("/");
 });
 
 app.listen(process.env.PORT || 3000, function() {

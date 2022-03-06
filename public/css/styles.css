@@ -523,9 +523,10 @@ h6 {
     border-radius: 20px;
 }
 
-.custom-cur {
+
+/* .custom-cur {
     cursor: url("../media/pen.png") 20 70, auto;
-}
+} */
 
 .card-container {
     display: flex;
@@ -562,28 +563,97 @@ h6 {
 
 /*___ rishi */
 
-body {
-    background-color: #f7f7f7;
+.events-container {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3-9Dxs6CamMKyQdwyIs-HQO_lC8zRDcSqJg&usqp=CAU");
+    background-size: cover;
+    background-position: center;
+    text-shadow: 0 0.05rem 0.1rem rgb(0 0 0 / 50%);
+    box-shadow: inset 0 0 5rem rgb(0 0 0 / 50%);
 }
 
-.card-body {
-    text-align: center;
+.blur-filter {
+    -webkit-filter: blur(2.5px);
+    -moz-filter: blur(2.5px);
+    -o-filter: blur(2.5px);
+    -ms-filter: blur(2.5px);
+    filter: blur(2.5px);
 }
 
-.eventModal {
-    padding: 0.5em !important;
+.circular-menu {
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
 }
 
-.none {
-    display: none;
+.circle {
+    width: 100%;
+    height: 100%;
 }
 
-.card-img-top {
-    height: 14rem;
+.circle img {
+    width: 10%;
+    height: 10%;
+    border-radius: 50%;
+    position: absolute;
+    cursor: pointer;
+}
+
+.center-img {
+    width: 15%;
+    height: 15%;
+    border-radius: 50%;
+    position: absolute;
+    background-image: url("https://wallpaperaccess.com/full/2185816.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    top: 42.5%;
+    left: 42.5%;
+    cursor: pointer;
+}
+
+.circle::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 72%;
+    height: 72%;
+    margin: auto;
+    border-radius: 50%;
+    border-top: 5px solid green;
+    animation: rotate 5s 0.2s both linear infinite;
 }
 
 .card {
-    width: 18.75rem !important;
+    padding: 0.2rem;
+    border-radius: 1.5rem;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 0.1rem rgb(0 0 0 / 70%);
+    text-shadow: 0 0 2px #555;
+}
+
+.card-body {
+    color: #ccc;
+}
+
+.eventInfo {
+    display: flex;
+    align-items: center;
+}
+
+.register {
+    color: #ccc;
+    border-width: 2.5px;
+}
+
+@keyframes rotate {
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 
@@ -614,7 +684,7 @@ body {
 }
 
 .social-button::after {
-    content: '';
+    content: "";
     position: absolute;
     top: -1px;
     left: 50%;

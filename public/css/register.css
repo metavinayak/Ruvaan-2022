@@ -21,9 +21,7 @@ body {
     font-size: 60px;
     color:#fff !important;
     font-weight: bolder;
-    position:absolute;
-    left:5%;
-    top:5%;
+    margin-left:-70%;
 }
 
 
@@ -33,11 +31,13 @@ body {
 }
 .wrapper {
   overflow: hidden;
-  max-width: 390px;
+  /* max-width: 390px; */
+  max-width: 90%;
   background: #fff;
   padding: 30px;
   border-radius: 15px;
   box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
+  /* margin-top:-40%; */
 }
 .wrapper .title-text {
   display: flex;
