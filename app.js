@@ -138,38 +138,34 @@ app.post(
     failureRedirect: "/register",
   }),
   (req, res) => {
-    req.flash("success", "Welcome back!");
+    req.flash("success", "Welcome " + req.user.name + " !");
     res.redirect("/events");
   }
 );
 app.post("/register", async (req, res) => {
   try {
-      const { name, email, phone, password, confirm_password} = req.body;
-      // check if pwd === cnf_pwd
-      if(!(confirm_password===password))
-      {
-        throw new Error("Password did not match Confirm Password!");
-      }
-      else
-      {
-        const user = new User({ email: email, name: name, phone: phone }); // make new user
-        
-        const registeredUser = await User.register(
-          user,
-          password,
-          function (err, user) {
-            if (err) {
-              console.log(err); // since internal implementation is hidden to user
-            } 
+    const { name, email, phone, password, confirm_password } = req.body;
+    // check if pwd === cnf_pwd
+    if (!(confirm_password === password)) {
+      throw new Error("Password did not match Confirm Password!");
+    } else {
+      const user = new User({ email: email, name: name, phone: phone }); // make new user
+
+      const registeredUser = await User.register(
+        user,
+        password,
+        function (err, user) {
+          if (err) {
+            console.log(err); // since internal implementation is hidden to user
           }
-        ); // register the new user
+        }
+      ); // register the new user
 
       req.login(registeredUser, (err) => {
-        req.flash("success", "Welcome!");
+        req.flash("success", "Welcome " + name + "!");
         res.redirect("/events");
       });
     }
-
   } catch (e) {
     req.flash("error", e.message);
     res.redirect("register");
