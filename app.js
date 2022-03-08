@@ -268,7 +268,7 @@ app.post("/reset/:token", function (req, res) {
           theuser.resetPasswordExpires = undefined;
           theuser.save(function (err) {
             req.login(theuser, (err) => {
-              req.flash("success", "Passsword reset successful. Welcome!");
+              req.flash("success", "Password reset successful. Now login!");
               // res.redirect('/events');
               res.redirect("/register");
             });
