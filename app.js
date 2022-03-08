@@ -144,26 +144,38 @@ app.post(
 );
 app.post("/register", async (req, res) => {
   try {
-    const { name, email, phone, password } = req.body;
-    const user = new User({ email: email, name: name, phone: phone });
-    const registeredUser = await User.register(
-      user,
-      password,
-      function (err, user) {
-        if (err) {
-          console.log(err);
-        }
+      const { name, email, phone, password, confirm_password} = req.body;
+      // check if pwd === cnf_pwd
+      if(!(confirm_password===password))
+      {
+        throw new Error("Password did not match Confirm Password!");
       }
-    );
-    req.login(registeredUser, (err) => {
-      req.flash("success", "Welcome!");
-      res.redirect("/events");
-    });
+      else
+      {
+        const user = new User({ email: email, name: name, phone: phone }); // make new user
+        
+        const registeredUser = await User.register(
+          user,
+          password,
+          function (err, user) {
+            if (err) {
+              console.log(err); // since internal implementation is hidden to user
+            } 
+          }
+        ); // register the new user
+
+      req.login(registeredUser, (err) => {
+        req.flash("success", "Welcome!");
+        res.redirect("/events");
+      });
+    }
+
   } catch (e) {
     req.flash("error", e.message);
     res.redirect("register");
   }
 });
+
 app.post("/forgot", function (req, res, next) {
   async.waterfall(
     [
