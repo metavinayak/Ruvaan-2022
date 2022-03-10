@@ -89,8 +89,8 @@ app.get("/events", function(req, res) {
     res.render("events", {});
 });
 app.get("/sponsors", function(req, res) {
-    res.render("under_construction", {});
-    // res.render("sponsors", {});
+    //res.render("under_construction", {});
+     res.render("sponsors", {});
 });
 app.get("/faq", function(req, res) {
     res.render("faq", {});
