@@ -19,8 +19,9 @@ const async = require("async");
 const crypto = require("crypto");
 
 ///////   Dependency requirements above    ///////
-const dbName = "Ruvaan";
-mongoose.connect(`mongodb://localhost:27017/${dbName}`, {
+const dbName = "Ruvaantest";
+// mongoose.connect(`mongodb://localhost:27017/${dbName}`, {
+mongoose.connect(`mongodb+srv://${process.env.ruvaan_db_user}:${process.env.ruvaan_db_pass}@cluster0.8snzu.mongodb.net/${dbName}?retryWrites=true&w=majority`, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });
