@@ -128,6 +128,10 @@ app.get("/reset/:token", function(req, res) {
         }
     );
 });
+app.get('/logout', function(req, res) {
+    req.logout();
+    res.redirect('/');
+});
 ////////////////////////////////////////////////////////////////////////////
 // POST requests below
 ////////////////////////////////////////////////////////////////////////////
@@ -283,23 +287,31 @@ app.post("/reset/:token", function(req, res) {
 
 app.post("/registerEvent", function(req, res) {
     const evName = req.body.eventToRegister;
-    if (typeof req.user._id === "undefined") res.redirect('/');
-    User.findOne({ _id: req.user._id }, function(err, found) {
-        if (err) console.log(err);
-        else {
-            let isPresent = false;
-            found.registeration.forEach((ev) => {
-                if (ev === evName) {
-                    isPresent = true;
+    if (typeof req.user._id === "undefined") {
+        req.flash("error", "Please login before registering");
+        res.redirect("/events");
+    } else {
+        User.findOne({ _id: req.user._id }, function(err, found) {
+            if (err) console.log(err);
+            else {
+                let isPresent = false;
+                found.registered_events.forEach((ev) => {
+                    if (ev === evName) {
+                        isPresent = true;
+                    }
+                })
+                if (isPresent === false) {
+                    found.registered_events.push(req.body.eventToRegister);
+                    req.flash("success", "Registration Successful!")
+                    res.redirect("/events");
+                    found.save();
+                } else {
+                    req.flash("success", "Already registered for this event.")
+                    res.redirect("/events");
                 }
-            })
-            if (isPresent === false) {
-                found.registeration.push(req.body.eventToRegister);
-            } else {}
-        }
-        found.save();
-    });
-    res.redirect("/");
+            }
+        });
+    }
 })
 
 app.post('/contactTeam', function(req,res){

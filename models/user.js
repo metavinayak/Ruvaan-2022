@@ -17,7 +17,7 @@ const UserSchema = new Schema({
         required: true,
         // unique: true,
     },
-    registeration : [String],
+    registered_events: [String],
     resetPasswordToken: String,
     resetPasswordExpires: Date
 });
