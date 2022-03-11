@@ -5,7 +5,7 @@
 ```
 sudo npm install -g nodemon
 
-npm i dotenv express-session passport passport-local-mongoose express ejs mongoose passport-google-oauth20 mongoose-findorcreate
+npm i dotenv express-session passport passport-local-mongoose express ejs ejs-mate mongoose mongoose-findorcreate connect-flash passport-local https async crypto
 ```
 
 ## Execution :
