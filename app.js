@@ -10,6 +10,7 @@ const findOrCreate = require("mongoose-findorcreate");
 const User = require("./models/user");
 const flash = require("connect-flash");
 const LocalStrategy = require("passport-local");
+const nodemailer = require("nodemailer");
 // const _ = require('lodash');
 require("https").globalAgent.options.rejectUnauthorized = false;
 
@@ -301,6 +302,45 @@ app.post("/registerEvent", function(req,res){
         found.save();
     });
     res.redirect("/");
+})
+
+app.post('/contactTeam', function(req,res){
+    console.log(req.body);
+
+    const name = req.body.name;
+    const email = req.body.email;
+    const subject = req.body.subject;
+    const message = req.body.message;
+
+    // SMTP Server
+    async function main() {
+    
+        // create reusable transporter object using the default SMTP transport
+        let transporter = nodemailer.createTransport({
+        host: process.env.mail_host,
+        port: 587,
+        secure: false, // true for 465, false for other ports
+        auth: {
+            user: process.env.mail_user, // generated ethereal user
+            pass: process.env.mail_pass, // generated ethereal password
+        },
+        tls:{
+            rejectUnauthorized:false
+        },
+        });
+    
+        // send mail with defined transport object
+        let info = await transporter.sendMail({
+        from: name+" "+email+ ` ${process.env.mail_user}`, // sender address
+        to: process.env.convener_mail, // list of receivers
+        subject: subject, // Subject line
+        html: message, // html body
+        });
+    
+        console.log("Message sent: %s", info.messageId);
+        console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+    }
+    main().catch(console.error);
 })
 
 app.listen(process.env.PORT || 3000, function() {
