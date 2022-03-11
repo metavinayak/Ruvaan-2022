@@ -105,14 +105,17 @@ const cardTitle = document.querySelector(".card-title");
 const cardText = document.querySelector("p.card-text");
 const eventImgs = document.querySelectorAll(".eventImg");
 const paidEvent = document.querySelector(".center-img");
+const eventToRegister = document.querySelector(".eventToRegister");
 
 cardTitle.innerText = `${events[0].title}`;
 cardText.innerText = `${events[0].content}`;
+eventToRegister.setAttribute("value",`${events[0].title}`);
 
 for (let i = 0; i < 12; i++) {
     eventImgs[i].addEventListener("click", (e) => {
         cardTitle.innerText = `${events[i].title}`;
         cardText.innerText = `${events[i].content}`;
+        eventToRegister.setAttribute("value",`${events[i].title}`);
         e.stopPropagation();
     });
 }
@@ -120,5 +123,6 @@ for (let i = 0; i < 12; i++) {
 paidEvent.addEventListener('click', e => {
     cardTitle.innerText = `${events[12].title}`;
     cardText.innerText = `${events[12].content}`;
+    eventToRegister.setAttribute("value",`${events[12].title}`);
     e.stopPropagation();
 })
