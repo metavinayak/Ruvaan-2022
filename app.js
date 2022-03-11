@@ -86,7 +86,7 @@ app.get("/contact", function(req, res) {
 });
 app.get("/events", function(req, res) {
     // req.flash("success", "Welcome back!");
-    res.render("events", {});
+    res.render("events", {user:req.user});
 });
 app.get("/sponsors", function(req, res) {
     //res.render("under_construction", {});
@@ -117,7 +117,7 @@ app.get("/reset/:token", function(req, res) {
         },
         function(err, user) {
             if (!user) {
-                req.flash("error", "Password reset token is invalid or has expired.");
+                ("error", "Password reset token is invalid or has expired.");
                 return res.redirect("/register");
             } else {
                 res.render("reset", {
@@ -279,6 +279,29 @@ app.post("/reset/:token", function(req, res) {
     //     res.redirect('/');
     // });
 });
+
+app.post("/registerEvent", function(req,res){
+    const evName = req.body.eventToRegister;
+    if(typeof req.user._id === "undefined") res.redirect('/');
+    User.findOne({_id : req.user._id}, function(err,found){
+        if(err) console.log(err);
+        else{
+            let isPresent = false;
+            found.registeration.forEach((ev)=>{
+                if(ev === evName){
+                    isPresent = true;
+                }
+            })
+            if(isPresent === false){
+                found.registeration.push(req.body.eventToRegister);
+            }
+            else{
+            }
+        }
+        found.save();
+    });
+    res.redirect("/");
+})
 
 app.listen(process.env.PORT || 3000, function() {
     console.log("Server running on port 3000");
