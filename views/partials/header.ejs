@@ -21,8 +21,13 @@
         <!-- .navbar -->
 
         <div class="social-buttons me-3">
-            <a href="/register" data-aos="fade-left"><button class="btn btn-dark register-btn">Login to Register</button></a>
-            <!-- <a href="#" class="social-buttons__button social-button social-button--facebook" aria-label="Facebook">
+            <% if(typeof user==="undefined"){ %>
+                <a href="/register" data-aos="fade-left"><button class="btn btn-dark register-btn">Login to Register</button></a>
+                <% }else{ %>
+                    <a href="/logout" data-aos="fade-left"><button class="btn btn-danger register-btn" >Log Out</button></a>
+                    <% } %>
+
+                        <!-- <a href="#" class="social-buttons__button social-button social-button--facebook" aria-label="Facebook">
                 <i class="fab fa-facebook-f"></i>
             </a>
             <a href="#" class="social-buttons__button social-button social-button--linkedin" aria-label="LinkedIn">

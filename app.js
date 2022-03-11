@@ -86,11 +86,11 @@ app.get("/contact", function(req, res) {
 });
 app.get("/events", function(req, res) {
     // req.flash("success", "Welcome back!");
-    res.render("events", {user:req.user});
+    res.render("events", { user: req.user });
 });
 app.get("/sponsors", function(req, res) {
     //res.render("under_construction", {});
-     res.render("sponsors", {});
+    res.render("sponsors", {});
 });
 app.get("/faq", function(req, res) {
     res.render("faq", {});
@@ -280,23 +280,21 @@ app.post("/reset/:token", function(req, res) {
     // });
 });
 
-app.post("/registerEvent", function(req,res){
+app.post("/registerEvent", function(req, res) {
     const evName = req.body.eventToRegister;
-    if(typeof req.user._id === "undefined") res.redirect('/');
-    User.findOne({_id : req.user._id}, function(err,found){
-        if(err) console.log(err);
-        else{
+    if (typeof req.user._id === "undefined") res.redirect('/');
+    User.findOne({ _id: req.user._id }, function(err, found) {
+        if (err) console.log(err);
+        else {
             let isPresent = false;
-            found.registeration.forEach((ev)=>{
-                if(ev === evName){
+            found.registeration.forEach((ev) => {
+                if (ev === evName) {
                     isPresent = true;
                 }
             })
-            if(isPresent === false){
+            if (isPresent === false) {
                 found.registeration.push(req.body.eventToRegister);
-            }
-            else{
-            }
+            } else {}
         }
         found.save();
     });
