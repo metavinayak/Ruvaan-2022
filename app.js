@@ -82,16 +82,13 @@ app.get("/", function(req, res) {
 app.get("/about", function(req, res) {
     res.render("about", {});
 });
-app.get("/contact", function(req, res) {
-    res.render("contact", {});
-});
 app.get("/events", function(req, res) {
     // req.flash("success", "Welcome back!");
-    res.render("events", {user:req.user});
+    res.render("events", { user: req.user });
 });
 app.get("/sponsors", function(req, res) {
     //res.render("under_construction", {});
-     res.render("sponsors", {});
+    res.render("sponsors", {});
 });
 app.get("/faq", function(req, res) {
     res.render("faq", {});
@@ -127,6 +124,10 @@ app.get("/reset/:token", function(req, res) {
             }
         }
     );
+});
+app.get('/logout', function(req, res) {
+    req.logout();
+    res.redirect('/');
 });
 ////////////////////////////////////////////////////////////////////////////
 // POST requests below
@@ -281,27 +282,72 @@ app.post("/reset/:token", function(req, res) {
     // });
 });
 
-app.post("/registerEvent", function(req,res){
+app.post("/registerEvent", function(req, res) {
     const evName = req.body.eventToRegister;
-    if(typeof req.user._id === "undefined") res.redirect('/');
-    User.findOne({_id : req.user._id}, function(err,found){
-        if(err) console.log(err);
-        else{
-            let isPresent = false;
-            found.registeration.forEach((ev)=>{
-                if(ev === evName){
-                    isPresent = true;
+    if (typeof req.user._id === "undefined") {
+        req.flash("error", "Please login before registering");
+        res.redirect("/events");
+    } else {
+        User.findOne({ _id: req.user._id }, function(err, found) {
+            if (err) console.log(err);
+            else {
+                let isPresent = false;
+                found.registered_events.forEach((ev) => {
+                    if (ev === evName) {
+                        isPresent = true;
+                    }
+                })
+                if (isPresent === false) {
+                    found.registered_events.push(req.body.eventToRegister);
+                    req.flash("success", "Registration Successful!")
+                    res.redirect("/events");
+                    found.save();
+                } else {
+                    req.flash("success", "Already registered for this event.")
+                    res.redirect("/events");
                 }
-            })
-            if(isPresent === false){
-                found.registeration.push(req.body.eventToRegister);
             }
-            else{
-            }
-        }
-        found.save();
-    });
-    res.redirect("/");
+        });
+    }
+})
+
+app.post('/contactTeam', function(req, res) {
+    console.log(req.body);
+
+    const name = req.body.name;
+    const email = req.body.email;
+    const subject = req.body.subject;
+    const message = req.body.message;
+
+    // SMTP Server
+    async function main() {
+
+        // create reusable transporter object using the default SMTP transport
+        let transporter = nodemailer.createTransport({
+            host: process.env.mail_host,
+            port: 587,
+            secure: false, // true for 465, false for other ports
+            auth: {
+                user: process.env.mail_user, // generated ethereal user
+                pass: process.env.mail_pass, // generated ethereal password
+            },
+            tls: {
+                rejectUnauthorized: false
+            },
+        });
+
+        // send mail with defined transport object
+        let info = await transporter.sendMail({
+            from: ` ${process.env.mail_user}`, // sender address
+            to: process.env.convener_mail, // list of receivers
+            subject: subject, // Subject line
+            text: "From: " + name + "\nEmail: " + email + "\n\n" + message, // html body
+        });
+
+        console.log("Message sent: %s", info.messageId);
+        console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+    }
+    main().catch(console.error);
 })
 
 app.post('/contactTeam', function(req,res){
