@@ -283,7 +283,6 @@ app.post("/reset/:token", function(req, res) {
 });
 
 app.post("/registerEvent", function(req, res) {
-    const evName = req.body.eventToRegister;
     if (typeof req.user._id === "undefined") {
         req.flash("error", "Please login before registering");
         res.redirect("/events");
@@ -291,24 +290,19 @@ app.post("/registerEvent", function(req, res) {
         User.findOne({ _id: req.user._id }, function(err, found) {
             if (err) console.log(err);
             else {
-                let isPresent = false;
-                found.registered_events.forEach((ev) => {
-                    if (ev === evName) {
-                        isPresent = true;
-                    }
-                })
-                if (isPresent === false) {
-                    found.registered_events.push(req.body.eventToRegister);
-                    req.flash("success", "Registration Successful!")
-                    res.redirect("/events");
-                    found.save();
-                } else {
-                    req.flash("success", "Already registered for this event.")
-                    res.redirect("/events");
-                }
+                let event_keys = Object.keys(found.registered_events);
+                event_keys.forEach(function(k,i){
+                    found.registered_events[k] = "unregistered";
+                });
+                let keys = Object.keys(req.body);
+                keys.forEach(function(k,ind){
+                    found.registered_events[k] = "registered";
+                });
+                found.save();
             }
         });
     }
+    res.redirect("/events");
 })
 
 app.post('/contactTeam', function(req, res) {

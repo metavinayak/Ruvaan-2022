@@ -5,15 +5,22 @@
         <nav id="navbar" class="navbar">
             <ul>
                 <li>
-                    <a class="" data-aos="fade-right" href="/"><img src="media/logo_dark.png" alt="Ruvaan" style="margin-top:20px;width: 80%;height: 80%;"></a>
+                    <a class="" data-aos="fade-right" href="/"><img src="media/logo_dark.png" alt="Ruvaan"
+                            style="margin-top:20px;width: 80%;height: 80%;"></a>
                     <!-- <i class="fas fa-home"></i> -->
                 </li>
-                <li><a class="nav-link scrollto effect-box" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="1000" href="/events">Events</a></li>
-                <li><a class="nav-link scrollto effect-box" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="1000" href="/faq">Contact & FAQs</a></li>
-                <li><a class="nav-link scrollto effect-box" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="1000" href="/sponsors">Sponsors</a></li>
-                <li><a class="nav-link scrollto effect-box" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="1000" href="team">Team</a></li>
-                <li><a class="nav-link scrollto effect-box" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="1000" href="workshop">Workshop</a></li>
-                <li><a class="nav-link scrollto effect-box" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="1000" href="merchandise">Merchandise</a></li>
+                <li><a class="nav-link scrollto effect-box" data-aos="flip-left" data-aos-easing="ease-out-cubic"
+                        data-aos-duration="1000" href="/events">Events</a></li>
+                <li><a class="nav-link scrollto effect-box" data-aos="flip-left" data-aos-easing="ease-out-cubic"
+                        data-aos-duration="1000" href="/faq">Contact & FAQs</a></li>
+                <li><a class="nav-link scrollto effect-box" data-aos="flip-left" data-aos-easing="ease-out-cubic"
+                        data-aos-duration="1000" href="/sponsors">Sponsors</a></li>
+                <li><a class="nav-link scrollto effect-box" data-aos="flip-left" data-aos-easing="ease-out-cubic"
+                        data-aos-duration="1000" href="team">Team</a></li>
+                <li><a class="nav-link scrollto effect-box" data-aos="flip-left" data-aos-easing="ease-out-cubic"
+                        data-aos-duration="1000" href="workshop">Workshop</a></li>
+                <li><a class="nav-link scrollto effect-box" data-aos="flip-left" data-aos-easing="ease-out-cubic"
+                        data-aos-duration="1000" href="merchandise">Merchandise</a></li>
                 <!-- <li><a class="nav-link scrollto navbar-right" href="#contact">icon</a></li> -->
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
@@ -22,12 +29,16 @@
 
         <div class="social-buttons me-3">
             <% if(typeof user==="undefined"){ %>
-                <a href="/register" data-aos="fade-left"><button class="btn btn-dark register-btn">Login to Register</button></a>
-                <% }else{ %>
-                    <a href="/logout" data-aos="fade-left"><button class="btn btn-danger register-btn" >Log Out</button></a>
-                    <% } %>
+            <a href="/register" data-aos="fade-left"><button class="btn btn-dark register-btn">Login to
+                    Register</button></a>
+            <% }else{ %>
+            <button type="button" data-aos="fade-right" class="btn btn-primary register-btn" data-bs-toggle="modal" data-bs-target="#exampleModal" style="margin-right:5px;">
+                Register
+            </button>
+            <a href="/logout" data-aos="fade-left"><button class="btn btn-danger register-btn">Log Out</button></a>
+            <% } %>
 
-                        <!-- <a href="#" class="social-buttons__button social-button social-button--facebook" aria-label="Facebook">
+            <!-- <a href="#" class="social-buttons__button social-button social-button--facebook" aria-label="Facebook">
                 <i class="fab fa-facebook-f"></i>
             </a>
             <a href="#" class="social-buttons__button social-button social-button--linkedin" aria-label="LinkedIn">
