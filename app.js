@@ -283,7 +283,6 @@ app.post("/reset/:token", function(req, res) {
 });
 
 app.post("/registerEvent", function(req, res) {
-    const evName = req.body.eventToRegister;
     if (typeof req.user._id === "undefined") {
         req.flash("error", "Please login before registering");
         res.redirect("/events");
@@ -291,24 +290,19 @@ app.post("/registerEvent", function(req, res) {
         User.findOne({ _id: req.user._id }, function(err, found) {
             if (err) console.log(err);
             else {
-                let isPresent = false;
-                found.registered_events.forEach((ev) => {
-                    if (ev === evName) {
-                        isPresent = true;
-                    }
-                })
-                if (isPresent === false) {
-                    found.registered_events.push(req.body.eventToRegister);
-                    req.flash("success", "Registration Successful!")
-                    res.redirect("/events");
-                    found.save();
-                } else {
-                    req.flash("success", "Already registered for this event.")
-                    res.redirect("/events");
-                }
+                let event_keys = Object.keys(found.registered_events);
+                event_keys.forEach(function(k,i){
+                    found.registered_events[k] = "unregistered";
+                });
+                let keys = Object.keys(req.body);
+                keys.forEach(function(k,ind){
+                    found.registered_events[k] = "registered";
+                });
+                found.save();
             }
         });
     }
+    res.redirect("/events");
 })
 
 app.post('/contactTeam', function(req, res) {
@@ -344,6 +338,45 @@ app.post('/contactTeam', function(req, res) {
             text: "From: " + name + "\nEmail: " + email + "\n\n" + message, // html body
         });
 
+        console.log("Message sent: %s", info.messageId);
+        console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+    }
+    main().catch(console.error);
+})
+
+app.post('/contactTeam', function(req,res){
+    console.log(req.body);
+
+    const name = req.body.name;
+    const email = req.body.email;
+    const subject = req.body.subject;
+    const message = req.body.message;
+
+    // SMTP Server
+    async function main() {
+    
+        // create reusable transporter object using the default SMTP transport
+        let transporter = nodemailer.createTransport({
+        host: process.env.mail_host,
+        port: 587,
+        secure: false, // true for 465, false for other ports
+        auth: {
+            user: process.env.mail_user, // generated ethereal user
+            pass: process.env.mail_pass, // generated ethereal password
+        },
+        tls:{
+            rejectUnauthorized:false
+        },
+        });
+    
+        // send mail with defined transport object
+        let info = await transporter.sendMail({
+        from: name+" "+email+ ` ${process.env.mail_user}`, // sender address
+        to: process.env.convener_mail, // list of receivers
+        subject: subject, // Subject line
+        html: message, // html body
+        });
+    
         console.log("Message sent: %s", info.messageId);
         console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
     }
