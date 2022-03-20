@@ -291,17 +291,18 @@ app.post("/registerEvent", function(req, res) {
             if (err) console.log(err);
             else {
                 let event_keys = Object.keys(found.registered_events);
-                event_keys.forEach(function(k,i){
+                event_keys.forEach(function(k, i) {
                     found.registered_events[k] = "unregistered";
                 });
                 let keys = Object.keys(req.body);
-                keys.forEach(function(k,ind){
+                keys.forEach(function(k, ind) {
                     found.registered_events[k] = "registered";
                 });
                 found.save();
             }
         });
     }
+    req.flash("success", "Successfully Registered!");
     res.redirect("/events");
 })
 
@@ -344,7 +345,7 @@ app.post('/contactTeam', function(req, res) {
     main().catch(console.error);
 })
 
-app.post('/contactTeam', function(req,res){
+app.post('/contactTeam', function(req, res) {
     console.log(req.body);
 
     const name = req.body.name;
@@ -354,29 +355,29 @@ app.post('/contactTeam', function(req,res){
 
     // SMTP Server
     async function main() {
-    
+
         // create reusable transporter object using the default SMTP transport
         let transporter = nodemailer.createTransport({
-        host: process.env.mail_host,
-        port: 587,
-        secure: false, // true for 465, false for other ports
-        auth: {
-            user: process.env.mail_user, // generated ethereal user
-            pass: process.env.mail_pass, // generated ethereal password
-        },
-        tls:{
-            rejectUnauthorized:false
-        },
+            host: process.env.mail_host,
+            port: 587,
+            secure: false, // true for 465, false for other ports
+            auth: {
+                user: process.env.mail_user, // generated ethereal user
+                pass: process.env.mail_pass, // generated ethereal password
+            },
+            tls: {
+                rejectUnauthorized: false
+            },
         });
-    
+
         // send mail with defined transport object
         let info = await transporter.sendMail({
-        from: name+" "+email+ ` ${process.env.mail_user}`, // sender address
-        to: process.env.convener_mail, // list of receivers
-        subject: subject, // Subject line
-        html: message, // html body
+            from: name + " " + email + ` ${process.env.mail_user}`, // sender address
+            to: process.env.convener_mail, // list of receivers
+            subject: subject, // Subject line
+            html: message, // html body
         });
-    
+
         console.log("Message sent: %s", info.messageId);
         console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
     }
