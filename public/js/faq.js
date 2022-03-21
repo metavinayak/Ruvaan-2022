@@ -1,16 +1,22 @@
 const Ques = [
-    "Are the events paid?",
-    "What is the last date to register?",
-    "Can non IIT sudents also participate?",
-    "Do we have to come to IIT Mandi to participate?",
-    "Are all the events completely online?",
+    "Do I have to come to IIT Mandi Campus to attend any of the event?",
+    "How to clarify doubts regarding any contest (participant from another college)?",
+    "Is there any participation fee for events?",
+    "How do I register for Ruvaan?",
+    "What should I do after completing registration?",
+    "Do the team-mates need to be from the same college for team events?",
+    "My college is not officially participating in Ruvaan'22. Can I still be a part of the fest on individual level?",
+    "How will I receive event web links, if I have registered for it?",
 ];
 const Ans = [
-    "No. Some events are paid while others are open for everyone to participate without any entry barrier.",
-    "For every event you must register at least 24 hours prior to the commencement.",
-    "Ruvaan is open for everyone. You need not be a college student all together to participate.",
-    "No. Since the events are in online mode, your presence is neigther required nor expected. Bhenchod hum toh pohche nahi hain tumko pehe jana hai.",
-    "While all events are completely online for attendees there might be performances which will be aired directly from IIT Mandi",
+    "No. Since the event is online, your presence is not required at the IIT Mandi campus",
+    "Participants can contact the event coordinators of the respective events. The contact info can be found in the rulebook of each event. ",
+    "No, all the events in Ruvaan are free.",
+    "You can register online at: https://forms.gle/VWVjHsxxQqAZteVL8 Hope to see you soon!",
+    "Please follow our updates on social-media and email.",
+    "No, you are free to form teams with other colleges as well.",
+    "Yes, Ruvaan'22 is open for all college-students.",
+    "All relevant information would be conveyed through email."
 ];
 
 function addtoAccordion(que, ans, i) {
